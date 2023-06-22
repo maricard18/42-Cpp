@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/06/21 14:44:58 by maricard         ###   ########.fr        #
+#    Updated: 2023/06/22 20:18:58 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= megaphone
-CFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
+NAME	= phonebook
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= megaphone.cpp
+SRC		= main.cpp Contact.cpp PhoneBook.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
