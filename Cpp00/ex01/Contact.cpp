@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/22 20:26:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/22 20:28:04 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void Contact::set_values(void)
 {
 	std::string str;
 
-	while (1)
-	{
 		std::cout << "Enter first name: ";
 		std::cin >> str;
 		store_values(str, first_name);
