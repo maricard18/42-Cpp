@@ -6,58 +6,50 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/22 20:28:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:16:16 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+# include "Contact.hpp"
+# include "PhoneBook.hpp"
 
-void	store_values(std::string str, char *arr)
+std::string	store_values(std::string &keyword, std::string message)
 {
-	std::size_t k;
-
-	if (str.length() == 0)
+	std::string str;
 	
-	if (str.length() > 10)
+	while (1)
 	{
-		for (std::size_t i = 0; i < str.length(); i++)
-			arr[i] = str[i];
-		arr[9] = '.';
+		std::cout << message;
+        std::cin >> str;
+		
+        if (str.empty())
+        {
+			// this doesn't work
+            std::cout << "You didn't enter anything. Try again." << std::endl;
+            continue;
+        }
+        if (str.length() > 10)
+        {
+            keyword = str.substr(0, 9) + ".";
+        }
+        else
+        {
+            keyword = str;
+            keyword.resize(10, ' ');
+        }
+        break;
 	}
-	else
-	{
-		k = str.length();
-		for (std::size_t i = 0; i < k; i++)
-			arr[i] = str[i];
-		for (std::size_t i = k; i < 10; i++)
-			arr[i] = ' ';
-	}
-	std::cout << std::endl;
 }
 
 void Contact::set_values(void)
 {
-	std::string str;
-
-		std::cout << "Enter first name: ";
-		std::cin >> str;
-		store_values(str, first_name);
-
-		std::cout << "Enter last name: ";
-		std::cin >> str;
-		store_values(str, last_name);
-
-		std::cout << "Enter nickname: ";
-		std::cin >> str;
-		store_values(str, nickname);
-
-		std::cout << "Enter number: ";
-		std::cin >> str;
-		store_values(str, number);
-
-		std::cout << "Enter darkest secret: ";
-		std::cin >> str;
-		store_values(str, secret);
+	store_values(first_name, "Enter first name: ");
+	store_values(last_name, "Enter last name: ");
+	store_values(nickname, "Enter nickname: ");
+	store_values(number, "Enter number: ");
+	store_values(secret, "Enter darkest secret: ");
+	
+	// need to store values in array of contacts (PhoneBook)
 }
 
 std::string Contact::get_value(std::string str)

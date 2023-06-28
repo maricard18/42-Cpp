@@ -6,48 +6,63 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/22 20:18:27 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:26:08 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+# include "PhoneBook.hpp"
+# include "Contact.hpp"
 
-void add_contact(void)
+void add_contact(Contact contact, PhoneBook phonebook, int *i)
 {
-	Contact contact;
-	
-	contact.set_values();
+	*i++;
+	if (*i > 7)
+	{
+		// change the oldest contact
+		phonebook.create_contact(i);
+		contact.set_values();
+		
+	}
+	else
+	{
+		// add contact numeber *i
+		phonebook.create_contact(i);
+		contact.set_values();
+	}
 }
-void search_contact(void)
+void search_contacts(Contact contact, PhoneBook phonebook, int *i)
 {
-	Contact contact;
-	//int index;
 	int a = 0;
 	
-	std::cout << "   index  |first name|last name | nickname " << std::endl;
-	std::cout << "         " << a << "|";
-	std::cout << contact.get_value("first_name") << "|";
-	std::cout << contact.get_value("last_name") << "|";
-	std::cout << contact.get_value("nickname") << std::endl;
-	//std::cout << "Enter index: ";
-	//std::cin >> index;
-	//std::cout << std::endl;
+	while (a < *i)
+	{
+		phonebook.contact_list(a);
+		
+		std::cout << a << "         "<< "|";
+		std::cout << contact.get_value("first_name") << "|";
+		std::cout << contact.get_value("last_name") << "|";
+		std::cout << contact.get_value("nickname") << std::endl;
+		a++;
+	}
 }
 
 int main(void)
 {
+	Contact contact;
+	PhoneBook phonebook;
 	std::string str;
+	int i;
 
+	i = -1;
 	while (1)
 	{
 		std::cout << "Enter command: ";
 		std::cin >> str;
 
 		if (str.compare("ADD") == 0)
-			add_contact();
+			add_contact(contact, phonebook, &i);
 		else if (str.compare("SEARCH") == 0)
-			search_contact();
+			search_contacts(contact, phonebook, &i);
 		else if (str.compare("EXIT") == 0)
 			break;
 		else

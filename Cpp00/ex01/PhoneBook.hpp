@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:22:59 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/22 17:19:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:24:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include <iostream>
 # include <string>
+# include <cstdio>
+# include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		char contacts[8][4];
+		std::string contact;
 
 	public:
-		void add_contact(void);
-		void search_contact(void);
+		void create_contact(int *i);
+		void contact_list(int *i);
 };
 
 #endif
