@@ -6,14 +6,14 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 12:17:47 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:29:56 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
 
-std::string	store_values(std::string &keyword, std::string message)
+std::string	store_values(std::string &keyword, std::string message, int flag)
 {
 	std::string str;
 	
@@ -28,15 +28,13 @@ std::string	store_values(std::string &keyword, std::string message)
             std::cout << "You didn't enter anything. Try again." << std::endl;
             continue;
         }
-        if (str.length() > 10)
+        if (str.length() > 10 && (flag >= 0 && flag <= 2))
         {
-			// ! cant dot the number and secret
             keyword = str.substr(0, 9) + ".";
         }
         else
         {
-			// search set width
-			// text must be right aligned 
+			// search set width because text must be right aligned 
             keyword = str;
             keyword.resize(10, ' ');
         }
@@ -49,14 +47,14 @@ void Contact::set_values(PhoneBook &phonebook, int i)
 {
 	std::string value;
 	
-	value = store_values(first_name, "Enter first name: ");
+	value = store_values(first_name, "Enter first name: ", 0);
 	phonebook.store_contact(value, i, 0);
-	value = store_values(last_name, "Enter last name: ");
+	value = store_values(last_name, "Enter last name: ", 1);
 	phonebook.store_contact(value, i, 1);
-	value = store_values(nickname, "Enter nickname: ");
+	value = store_values(nickname, "Enter nickname: ", 2);
 	phonebook.store_contact(value, i, 2);
-	value = store_values(number, "Enter number: ");
+	value = store_values(number, "Enter number: ", 3);
 	phonebook.store_contact(value, i, 3);
-	value = store_values(secret, "Enter darkest secret: ");
+	value = store_values(secret, "Enter darkest secret: ", 4);
 	phonebook.store_contact(value, i, 4);
 }

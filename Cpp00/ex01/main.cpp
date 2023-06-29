@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 12:11:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:32:00 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void search_contacts(PhoneBook &phonebook, int i)
 {
 	int a = 0;
 	
-	std::cout << "index     |first name|last name |nickname  " << std::endl;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	while (a <= i && a < 8)
 	{
 		phonebook.get_contact(a);
@@ -39,7 +39,7 @@ void search_contacts(PhoneBook &phonebook, int i)
 	}
 	std::cout << "Enter index: ";
 	std::cin >> a;
-	if (a > i && a < 0)
+	if (a > i || a < 0)
 		std::cout << "Wrong index :(" << std::endl;
 	else
 	{

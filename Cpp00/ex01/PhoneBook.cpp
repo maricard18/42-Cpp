@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 12:17:17 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:32:33 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void PhoneBook::get_contact(int a)
 {
-	// text must be right aligned
-	std::cout << a << "         "<< "|";
+	// ! text must be right aligned
+	std::cout << "         " << a << "|";
 	std::cout << contacts[a][0] << "|";
 	std::cout << contacts[a][1] << "|";
 	std::cout << contacts[a][2] << std::endl;
