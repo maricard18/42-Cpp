@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:13:17 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/28 20:13:20 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:03:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <cstdio>
 # include "PhoneBook.hpp"
 
+class PhoneBook;
+
 class Contact
 {
 	private:
@@ -29,8 +31,7 @@ class Contact
 		std::string secret;
 
 	public:
-		void set_values(void);
-		std::string get_value(std::string str);
+		void set_values(PhoneBook &phonebook, int i);
 };
 
 #endif

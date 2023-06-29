@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/28 20:16:16 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/29 12:17:47 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,39 @@ std::string	store_values(std::string &keyword, std::string message)
 		
         if (str.empty())
         {
-			// this doesn't work
+			// ! this doesn't work yet
             std::cout << "You didn't enter anything. Try again." << std::endl;
             continue;
         }
         if (str.length() > 10)
         {
+			// ! cant dot the number and secret
             keyword = str.substr(0, 9) + ".";
         }
         else
         {
+			// search set width
+			// text must be right aligned 
             keyword = str;
             keyword.resize(10, ' ');
         }
         break;
 	}
+	return (keyword);
 }
 
-void Contact::set_values(void)
+void Contact::set_values(PhoneBook &phonebook, int i)
 {
-	store_values(first_name, "Enter first name: ");
-	store_values(last_name, "Enter last name: ");
-	store_values(nickname, "Enter nickname: ");
-	store_values(number, "Enter number: ");
-	store_values(secret, "Enter darkest secret: ");
+	std::string value;
 	
-	// need to store values in array of contacts (PhoneBook)
-}
-
-std::string Contact::get_value(std::string str)
-{
-	if (str.compare("first_name") == 0)
-		return (first_name);
-	else if (str.compare("last_name") == 0)
-		return (last_name);
-	else if (str.compare("nickname") == 0)
-		return (nickname);
-	return (NULL);
+	value = store_values(first_name, "Enter first name: ");
+	phonebook.store_contact(value, i, 0);
+	value = store_values(last_name, "Enter last name: ");
+	phonebook.store_contact(value, i, 1);
+	value = store_values(nickname, "Enter nickname: ");
+	phonebook.store_contact(value, i, 2);
+	value = store_values(number, "Enter number: ");
+	phonebook.store_contact(value, i, 3);
+	value = store_values(secret, "Enter darkest secret: ");
+	phonebook.store_contact(value, i, 4);
 }
