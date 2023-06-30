@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/30 12:01:24 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:16:46 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ void PhoneBook::get_contact(int a)
 {
 	int width = 10;
 	
-	std::cout << std::left
+	// ! check len of the string
+	//if (str.length(contacts[a][0]))
+    //{
+    //  contacts[a][0].substr(0, 9) + ".";
+	//}
+	
+	std::cout << std::right
 			  << "|" << std::setw(width) << a + 1 << "|"
 			  << std::setw(width) << contacts[a][0] << "|"
 			  << std::setw(width) << contacts[a][1] << "|"

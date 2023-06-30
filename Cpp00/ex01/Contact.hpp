@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:13:17 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/30 11:47:52 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:01:06 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string.h>
+# include <stdlib.h>
 # include <string>
 # include <cstdio>
 # include <iomanip>
