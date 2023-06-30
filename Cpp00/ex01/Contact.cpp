@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 12:29:56 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:57:34 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,18 @@ std::string	store_values(std::string &keyword, std::string message, int flag)
 		std::cout << message;
         std::cin >> str;
 		
-        if (str.empty())
+        if (str.length() == 0) // ! this doesn't work
         {
-			// ! this doesn't work yet
             std::cout << "You didn't enter anything. Try again." << std::endl;
             continue;
         }
-        if (str.length() > 10 && (flag >= 0 && flag <= 2))
+        if (str.length() > 10 && flag < 3)
         {
             keyword = str.substr(0, 9) + ".";
         }
         else
         {
-			// search set width because text must be right aligned 
             keyword = str;
-            keyword.resize(10, ' ');
         }
         break;
 	}

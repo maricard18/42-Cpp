@@ -6,12 +6,12 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 14:05:52 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:02:28 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "PhoneBook.hpp"
-# include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 void add_contact(Contact &contact, PhoneBook &phonebook, int *i, int *temp)
 {
@@ -35,30 +35,42 @@ void add_contact(Contact &contact, PhoneBook &phonebook, int *i, int *temp)
 void search_contacts(PhoneBook &phonebook, int i)
 {
 	int a = 0;
-	
+	char c;
+
 	if (i == -1)
 	{
-		std::cout << std::endl << " -- No contacts yet --" << std::endl << std::endl;
-		return ;
+		std::cout << std::endl
+				  << "No contacts yet" << std::endl
+				  << std::endl;
+		return;
 	}
 	else
 	{
-		std::cout << std::endl;
-		std::cout << "     index|first name| last name|  nickname" << std::endl;
+		std::cout << std::endl
+				  << "---------------------------------------------" << std::endl
+				  << "|index     |first name|last name |nickname  |" << std::endl;
+		while (a <= i && a < 8)
+		{
+			phonebook.get_contact(a);
+			a++;
+		}
 	}
-	while (a <= i && a < 8)
-	{
-		phonebook.get_contact(a);
-		a++;
-	}
+
 	std::cout << std::endl;
 	std::cout << "Enter index: ";
-	std::cin >> a;
-	// ! check int max and int min
-	if (a - 1 > i || a - 1 < 0)
-		std::cout << std::endl << " -- Wrong index --" << std::endl << std::endl;
-	else
-		phonebook.get_contact_info(a - 1);
+	std::cin >> c;
+	std::cout << std::endl;
+
+	if (isalnum(c)) // ! check int max and int min // check overflows
+	{
+		a = c - '0';
+		printf("a = %d\n", a);
+		if (a - 1 <= i || a - 1 >= 0)
+			std::cout << "Index doesn't exit" << std::endl
+					  << std::endl;
+		else
+			phonebook.get_contact_info(a - 1);
+	}
 }
 
 int main(void)
@@ -83,8 +95,8 @@ int main(void)
 		else
 		{
 			std::cout << std::endl;
-			std::cout << " -- Wrong command --";
-			std::cout << std::endl << std::endl;
+			std::cout << "Command: " << str << " doesn't exit";
+			std::cout << std::endl;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:22:59 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 12:04:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:47:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdio>
+# include <iomanip>
 # include "Contact.hpp"
 
 class Contact;

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 16:13:17 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/29 14:05:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/06/30 11:47:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <string>
 # include <cstdio>
+# include <iomanip>
 # include "PhoneBook.hpp"
 
 class PhoneBook;
