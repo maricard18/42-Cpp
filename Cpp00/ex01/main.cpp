@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/30 13:10:33 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/02 15:45:11 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void search_contacts(PhoneBook &phonebook, int i)
 	else
 	{
 		std::cout << std::endl
-				  << "---------------------------------------------" << std::endl
-				  << "|index     |first name|last name |nickname  |" << std::endl;
+				  << "------------------------------------------" << std::endl
+				  << "| index |first name| last name|  nickname|" << std::endl;
 		while (a <= i && a < 8)
 		{
 			phonebook.get_contact(a);
@@ -91,9 +91,9 @@ int main(void)
 			break;
 		else
 		{
-			std::cout << std::endl;
-			std::cout << "Command: " << str << " doesn't exit";
-			std::cout << std::endl;
+			std::cout << std::endl
+					  << "Command: " << str << " doesn't exit"
+					  << std::endl << std::endl;
 		}
 	}
 }
