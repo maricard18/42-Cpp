@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/30 13:16:46 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/02 12:55:50 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@ void PhoneBook::get_contact(int a)
 {
 	int width = 10;
 	
-	// ! check len of the string
-	//if (str.length(contacts[a][0]))
-    //{
-    //  contacts[a][0].substr(0, 9) + ".";
-	//}
-	
-	std::cout << std::right
-			  << "|" << std::setw(width) << a + 1 << "|"
-			  << std::setw(width) << contacts[a][0] << "|"
-			  << std::setw(width) << contacts[a][1] << "|"
-			  << std::setw(width) << contacts[a][2] << "|"
-			  << std::endl;
+	std::cout << std::right << "|" << std::setw(width) << a + 1 << "|";
+	if (contacts[a][0].length() > 10)
+		std::cout << std::setw(width) << contacts[a][0].substr(0, 9) + "." << "|";
+	else
+		std::cout << std::setw(width) << contacts[a][0] << "|";
+	if (contacts[a][1].length() > 10)
+		std::cout << std::setw(width) << contacts[a][1].substr(0, 9) + "." << "|";
+	else
+		std::cout << std::setw(width) << contacts[a][1] << "|";
+	if (contacts[a][2].length() > 10)
+		std::cout << std::setw(width) << contacts[a][2].substr(0, 9) + "." << "|" << std::endl;
+	else
+		std::cout << std::setw(width) << contacts[a][1] << "|" << std::endl;
 }
 
 void PhoneBook::get_contact_info(int a)
