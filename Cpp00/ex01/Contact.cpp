@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/02 12:54:10 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/03 11:46:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 
 std::string	store_values(std::string &keyword, std::string message)
 {
-	std::string str;
+	std::string input;
 	
+	std::cin.ignore(1000000000, '\n');
 	while (1)
 	{
 		std::cout << message;
-        std::cin >> str;
+       	std::getline(std::cin, input);
 		
-        if (str.length() == 0) // ! this doesn't work // use getline ?
+        if (input.empty()) // ! this doesn't work // use getline ?
         {
-            std::cout << "You didn't enter anything. Try again." << std::endl;
+            std::cout << "Contacts can't have empty fields." << std::endl
+					  << "Try again." << std::endl;
             continue;
         }
-        keyword = str;
         break;
 	}
+	keyword = input;
 	return (keyword);
 }
 
