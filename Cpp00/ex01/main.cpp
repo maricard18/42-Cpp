@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/03 11:25:47 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/03 16:04:02 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void add_contact(Contact &contact, PhoneBook &phonebook, int *i, int *temp)
 		*i = 8;
 	}
 	else
-	{
 		contact.set_values(phonebook, *i);
-	}
 }
 
 void search_contacts(PhoneBook &phonebook, int i)
@@ -38,34 +36,27 @@ void search_contacts(PhoneBook &phonebook, int i)
 
 	if (i == -1)
 	{
-		std::cout << std::endl
-				  << "No contacts yet" << std::endl
-				  << std::endl;
+		std::cout << std::endl << "No contacts yet" << std::endl << std::endl;
 		return;
 	}
-	else
+	std::cout << std::endl
+			  << "------------------------------------------" << std::endl
+			  << "| index |first name| last name|  nickname|" << std::endl;
+	while (a <= i && a < 8)
 	{
-		std::cout << std::endl
-				  << "------------------------------------------" << std::endl
-				  << "| index |first name| last name|  nickname|" << std::endl;
-		while (a <= i && a < 8)
-		{
-			phonebook.get_contact(a);
-			a++;
-		}
+		phonebook.get_contact(a);
+		a++;
 	}
-	std::cout << std::endl;
-	std::cout << "Enter index: ";
+	std::cout << std::endl << "Enter index: ";
 	std::cin >> a;
 	if (std::cin.fail())
 	{
 		std::cin.clear();
-		std::cin.ignore(10000, '\n');
+		std::cin.ignore(1000000, '\n');
 	}
 	std::cout << std::endl;
 	if (a - 1 > i || a - 1 < 0)
-		std::cout << "Index doesn't exit" << std::endl
-				  << std::endl;
+		std::cout << "Index doesn't exit" << std::endl << std::endl;
 	else
 		phonebook.get_contact_info(a - 1);
 }
