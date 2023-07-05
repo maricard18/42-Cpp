@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:38:58 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/05 21:40:15 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/05 22:30:00 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,10 @@ bool	Account::makeWithdrawal( int withdrawal )
 			  << "nb_withdrawals:" << _nbWithdrawals
 			  << std::endl;
 	_nbAccounts++;
-	return true;
+	if (withdrawal > )
+		return false;
+	else
+		return true;
 }
 
 int		Account::checkAmount( void ) const
