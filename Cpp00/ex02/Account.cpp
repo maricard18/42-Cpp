@@ -6,13 +6,14 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:38:58 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/04 11:22:43 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/05 10:52:28 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <stdio.h>
 #include "Account.hpp"
 
 int Account::_nbAccounts = 0;
@@ -42,31 +43,47 @@ int	Account::getNbWithdrawals( void )
 
 void Account::displayAccountsInfos( void )
 {
-	std::cout << "accounts:" << _nbAccounts 
-			  << ";total:" << _totalAmount 
-			  << ";deposits:" << _totalNbDeposits 
-			  << ";withdrawals:" << _totalNbWithdrawals 
-			  << std::endl;
+	printf("displayAccountsInfo\n");
+	//std::cout << "accounts:" << _nbAccounts 
+	//		  << ";total:" << _totalAmount 
+	//		  << ";deposits:" << _totalNbDeposits 
+	//		  << ";withdrawals:" << _totalNbWithdrawals 
+	//		  << std::endl;
 }
 
 void Account::makeDeposit( int deposit )
 {
+	printf("makeDeposit\n");
 	(void)deposit;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
-{	
+{
+	printf("makeWithdrawal\n");	
 	(void)withdrawal;
-	return (true);
+	return true;
 }
 
 int		Account::checkAmount( void ) const
 {
+	printf("checkAmount\n");
 	return 1;
 }
 
 void	Account::displayStatus( void ) const
 {
+	printf("displayStatus\n");
+}
+
+Account::Account( int initial_deposit )
+{
+	printf("Account\n");
+	(void)initial_deposit;
+}
+
+Account::~Account( void )
+{
+	printf("~Account\n");
 }
 
 void Account :: _displayTimestamp( void )

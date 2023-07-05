@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/03 11:54:33 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/05 10:43:40 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= megaphone
+NAME	= account
 CFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= Account.cpp tests.cpp
