@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maricard <maricard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 12:21:46 by maricard          #+#    #+#             */
-/*   Updated: 2023/06/21 15:00:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:03:54 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 		{
 			for (int j = 0; argv[i][j]; j++)
 				std::cout << (char)toupper(argv[i][j]);
-			std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
