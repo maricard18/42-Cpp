@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:23:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/03 16:04:02 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:12:44 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void search_contacts(PhoneBook &phonebook, int i)
 	}
 	std::cout << std::endl << "Enter index: ";
 	std::cin >> a;
+	std::cin.ignore(1000000, '\n');
 	if (std::cin.fail())
 	{
 		std::cin.clear();
@@ -56,7 +57,7 @@ void search_contacts(PhoneBook &phonebook, int i)
 	}
 	std::cout << std::endl;
 	if (a - 1 > i || a - 1 < 0)
-		std::cout << "Index doesn't exit" << std::endl << std::endl;
+		std::cout << "\tIndex doesn't exit" << std::endl << std::endl;
 	else
 		phonebook.get_contact_info(a - 1);
 }
@@ -72,7 +73,7 @@ int main(void)
 	while (1)
 	{
 		std::cout << "Enter command: ";
-		std::cin >> str;
+       	std::getline(std::cin, str);
 
 		if (str.compare("ADD") == 0)
 			add_contact(contact, phonebook, &i, &temp);
@@ -83,7 +84,7 @@ int main(void)
 		else
 		{
 			std::cout << std::endl
-					  << "Command: " << str << " doesn't exit"
+					  << "\tCommand: " << str << " doesn't exit"
 					  << std::endl << std::endl;
 		}
 	}

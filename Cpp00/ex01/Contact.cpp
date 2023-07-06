@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:36:47 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/03 16:05:45 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:08:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ std::string	store_values(std::string &keyword, std::string message)
 {
 	std::string input;
 	
-	std::cin.ignore(1000000, '\n');
 	while (1)
 	{
 		std::cout << message;
