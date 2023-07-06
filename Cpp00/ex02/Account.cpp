@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 16:38:58 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/06 15:38:22 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:41:29 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,6 @@ bool Account::makeWithdrawal(int withdrawal)
 	}
 	_nbAccounts++;
 	return true;
-}
-
-int Account::checkAmount(void) const
-{
-	printf("checkAmount\n");
-	return 1;
 }
 
 // ---> Get number of accounts -----
