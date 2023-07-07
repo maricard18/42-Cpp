@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/07 12:48:28 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/07 15:40:49 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
 NAME	= zombie
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC		= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC		= main.cpp zombieHorde.cpp Zombie.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
