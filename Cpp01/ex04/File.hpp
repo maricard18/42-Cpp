@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 15:58:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/08 18:30:18 by maricard         ###   ########.fr       */
+/*   Created: 2023/07/08 18:55:01 by maricard          #+#    #+#             */
+/*   Updated: 2023/07/08 19:37:53 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#ifndef FILE_HPP
+#define FILE_HPP
 
 #include <iostream>
-#include "Weapon.hpp"
+#include <fstream>
 
-class HumanB
+class File
 {
 	public:
-		void attack(void);
-		void setName(std::string humanName);
-		void setWeapon(Weapon &club);
-
-		HumanB(std::string name);
-
+		void store_line(std::string line);
+		void create_file(std::string file_name);
+		
 	private:
-		std::string type;
-		std::string name;
+		std::string fileName;
+		std::fstream new_file;
 };
 
 #endif
-

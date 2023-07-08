@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   File.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 15:58:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/08 18:30:18 by maricard         ###   ########.fr       */
+/*   Created: 2023/07/08 18:54:30 by maricard          #+#    #+#             */
+/*   Updated: 2023/07/08 19:52:20 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#include "File.hpp"
 
-#include <iostream>
-#include "Weapon.hpp"
-
-class HumanB
+void File::store_line(std::string line)
 {
-	public:
-		void attack(void);
-		void setName(std::string humanName);
-		void setWeapon(Weapon &club);
+	std::fstream file;
 
-		HumanB(std::string name);
+	file.open(fileName.c_str(), std::ios::app);
+	file << line << std::endl;
+}
 
-	private:
-		std::string type;
-		std::string name;
-};
+void File::create_file(std::string name)
+{
+	std::fstream file;
 
-#endif
-
+	name += ".replace";
+	fileName = name;
+	file.open(fileName.c_str(), std::ios::out);
+}

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:57:27 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/07 16:03:20 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/08 18:21:37 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 
 class Weapon
 {
-	
 	public:
-		std::string getType(void); // ! probably wrong
-		void setType(std::string type);
+		std::string const &getType(void);
+		void setType(std::string new_type);
+
+		Weapon(std::string message);
 
 	private:
 		std::string type;

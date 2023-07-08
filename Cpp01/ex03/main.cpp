@@ -6,13 +6,13 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:57:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/07 16:05:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/08 16:54:42 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 #include "HumanA.hpp"
-#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {

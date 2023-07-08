@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/08 17:19:20 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/08 19:48:04 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= violence
+NAME	= harl
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC		= main.cpp File.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
