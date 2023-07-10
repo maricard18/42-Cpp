@@ -6,11 +6,16 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:23:02 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/08 20:28:00 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/09 00:27:15 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+void complain(std::string level)
+{
+	
+}
 
 void Harl::debug(void)
 {
