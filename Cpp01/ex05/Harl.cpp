@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:23:02 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/10 13:14:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/10 15:11:21 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void Harl::debug(void)
 {
-	std::cout << "I love having extra bacon for my " << std::endl
-			  << "7XL-double-cheese-triple-pickle-specialketchup burger." << std::endl
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger." << std::endl
 			  << "I really do!" << std::endl;
 }
 
@@ -29,8 +28,7 @@ void Harl::info(void)
 void Harl::warning(void)
 {
 	std::cout << "I think I deserve to have some extra bacon for free." << std::endl
-			  << "I’ve been coming for years whereas you started working " << std::endl
-			  << "here since last month." << std::endl;
+			  << "I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void Harl::error(void)
@@ -39,14 +37,19 @@ void Harl::error(void)
 			  << "I want to speak to the manager now." << std::endl;
 }
 
-void complain(std::string level)
+void Harl::complain(std::string level)
 {
-	std::map<std::string, void (Harl::*)()> map;
+	std::map<std::string, void (Harl::*)()> myMap;
+	std::map<std::string, void (Harl::*)()>::iterator it;
 
-	map["DEBUG"] = &Harl::debug;
-	map["INFO"] = &Harl::info;
-	map["WARNING"] = &Harl::warning;
-	map["ERROR"] = &Harl::error;
+	myMap["DEBUG"] = &Harl::debug;
+	myMap["INFO"] = &Harl::info;
+	myMap["WARNING"] = &Harl::warning;
+	myMap["ERROR"] = &Harl::error;
 
-	int a = map.find
+	it = myMap.find(level);
+	if (it != myMap.end())
+		(this->*myMap[level])();
+	else
+		std::cout << "Wrong level." << std::endl;
 }
