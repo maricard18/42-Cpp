@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:00:49 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/08 20:21:58 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:29:34 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <map>
 
 class Harl
 {

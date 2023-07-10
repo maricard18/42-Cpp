@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/08 19:48:04 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/10 11:26:16 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= harl
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC		= main.cpp File.cpp
+SRC		= main.cpp Harl.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
