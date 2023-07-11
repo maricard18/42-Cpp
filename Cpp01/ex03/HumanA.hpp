@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:57:49 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/08 18:11:35 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:11:31 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class HumanA
 {
 	public:
 		void attack(void);
-		void setType(std::string Weapon);
 		void setName(std::string humanName);
 
 		HumanA(std::string name, Weapon &club);
@@ -28,6 +27,7 @@ class HumanA
 	private:
 		std::string type;
 		std::string name;
+		Weapon &club;
 };
 
 #endif
