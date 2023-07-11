@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 12:46:56 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/07 15:36:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/11 14:39:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 class Zombie 
 {	
 	public:
-
+		Zombie(void);
 		void 	announce(void);
 		void	set_name(std::string name);
 	
 	private:
-	
 		std::string name;
 };
 
