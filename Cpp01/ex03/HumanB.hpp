@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:58:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/11 13:10:28 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/11 14:14:31 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class HumanB
 	private:
 		std::string type;
 		std::string name;
-		Weapon weapon;
+		Weapon *club;
 };
 
 #endif
