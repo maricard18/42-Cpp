@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 20:00:49 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/11 11:08:04 by maricard         ###   ########.fr       */
+/*   Created: 2023/07/09 00:28:05 by maricard          #+#    #+#             */
+/*   Updated: 2023/07/10 15:16:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-# include <iostream>
-# include <iomanip>
-
-class Harl
+int main(int argc, char **argv)
 {
-	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+	if (argc != 2)
+	{
+		std::cout << "Invalid arguments" << std::endl
+				  << "./harlFilter [DEBUG/INFO/WARNING/ERROR]" << std::endl;
+		return (0);
+	}
+	else
+	{
+		std::string level = argv[1];
+		Harl harl;
 
-	public:
-		void complain( std::string level );
-};
-
-#endif
+		harl.complain(level);
+		return (0);
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:23:02 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/11 11:29:36 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/11 11:44:00 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
+	int a = 4;
 	std::string arrayStrings[4] = 
 	{
 		"DEBUG",
@@ -54,9 +55,30 @@ void Harl::complain(std::string level)
 		&Harl::warning,
 		&Harl::error,
 	};
-
+	
 	for (int i = 0; i < 4; i++)
 		if (arrayStrings[i] == level)
-			(this->*functions[i])();
-	
+			a = i;
+	switch (a)
+	{
+		case 0:
+			std::cout << "[ " << arrayStrings[0] << " ]" << std::endl;
+			(this->*functions[0])();
+			std::cout << std::endl;
+		case 1:
+			std::cout << "[ " << arrayStrings[1] << " ]" << std::endl;
+			(this->*functions[1])();
+			std::cout << std::endl;
+		case 2:
+			std::cout << "[ " << arrayStrings[2] << " ]" << std::endl;
+			(this->*functions[2])();
+			std::cout << std::endl;
+		case 3:
+			std::cout << "[ " << arrayStrings[3] << " ]" << std::endl;
+			(this->*functions[3])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
+	}
 }
