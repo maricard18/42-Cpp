@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/07 12:48:28 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/19 12:01:19 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= zombie
+NAME	= fixed
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC		= main.cpp Fixed.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)

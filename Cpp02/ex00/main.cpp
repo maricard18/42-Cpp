@@ -6,12 +6,11 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/12 18:59:19 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:48:15 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "File.hpp"
-#include <iostream>
+#include "Fixed.hpp"
 
 int main( void )
 {
