@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/19 17:52:28 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/19 23:21:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ Fixed::Fixed()
 	this->value = 0;
 }
 
-Fixed::Fixed(const int value)
+Fixed::Fixed(const int number)
 {
 	std::cout << "Int constructer called" << std::endl;
-	this->value = 0;
+	this->value = number * (1 << bits);
 }
 
-Fixed::Fixed(const int value)
+Fixed::Fixed(const float number)
 {
+	(void)number;
 	std::cout << "Float constructer called" << std::endl;
-	this->value = 0;
+	this->value = number * (1 << bits);
 }
 
 Fixed::Fixed(const Fixed& copy)
@@ -44,19 +45,25 @@ Fixed::~Fixed()
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other)
-		this->value = getRawBits();
+	if (this == &other)
+		return (*this);
+	this->value = other.value;
 	return (*this);
 }
 
-int Fixed::getRawBits(void) const
+float Fixed::toFloat(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->value);
+	return ((float)this->value) / (float)(1 << bits);
 }
 
-void Fixed::setRawBits(int const raw)
+int Fixed::toInt(void) const
 {
-	std::cout << "setRawBits member function called" << std::endl;
-	this->value = raw;	
+	return (this->value >> bits);
+}
+
+
+std::ostream& operator<<(std::ostream &out, const Fixed &c)
+{
+	out << c.toFloat();
+	return out;
 }
