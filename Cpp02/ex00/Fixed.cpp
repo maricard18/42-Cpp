@@ -6,15 +6,18 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/19 12:00:36 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:33:56 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+int Fixed::bits = 0;
+
 Fixed::Fixed()
 {
 	std::cout << "Default constructer called" << std::endl;
+	this->value = 0;
 }
 
 Fixed::Fixed(const Fixed& copy)
