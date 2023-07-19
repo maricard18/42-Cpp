@@ -6,13 +6,13 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/19 12:33:56 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:16:22 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int Fixed::bits = 0;
+int Fixed::bits = 8;
 
 Fixed::Fixed()
 {
@@ -36,7 +36,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->bits = other.bits;
-	this->value = other.value;
+	this->value = getRawBits();
 	return (*this);
 }
 
