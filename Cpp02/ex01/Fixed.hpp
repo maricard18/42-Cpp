@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:52 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/19 17:37:51 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:52:10 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ class Fixed
 
 	public:
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		float toFloat( void ) const;
+		int toInt( void ) const;
 	
 		//! Constructors and destructor
 		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
 		Fixed(const Fixed& copy);
 		~Fixed();
 
