@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 18:47:52 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/21 10:37:54 by maricard         ###   ########.fr       */
+/*   Created: 2023/07/22 17:21:59 by maricard          #+#    #+#             */
+/*   Updated: 2023/07/22 18:12:31 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
 # include <iostream>
-# include <iomanip>
+# include "Fixed.hpp"
 
-class Fixed
+class Point
 {
 	private:
-		int value;
-		static const int bits = 8;
+		Fixed const x;
+		Fixed const y;
 
 	public:
 		//! Constructors and destructor
-		Fixed();
-		Fixed(const Fixed& copy);
-		Fixed(const int number);
-		Fixed(const float number);
-		~Fixed();
+		Point();
+		Point(const float a, const float b);
+		Point(const Point& copy);
+		~Point();
 
 		//! Operator overloading
-		Fixed& operator=(const Fixed& other);
-		
-		//! Member functions
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Point& operator=(const Point& other);
+
+		//! Functions
+
 };
 
-std::ostream& operator<<(std::ostream &out, const Fixed &c);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
