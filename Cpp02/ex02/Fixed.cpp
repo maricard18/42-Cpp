@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/22 16:03:11 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:43:01 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ Fixed::Fixed(const int number)
 
 Fixed::Fixed(const float number)
 {
-	(void)number;
 	this->value = number * (1 << bits);
 }
 
@@ -168,3 +167,4 @@ std::ostream& operator<<(std::ostream &out, const Fixed &c)
 	out << c.toFloat();
 	return out;
 }
+

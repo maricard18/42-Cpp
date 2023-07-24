@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:36:31 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/22 18:14:33 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:10:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main( void )
 {
 	Point a(1.0f, 1.0f);
 	Point b(2.0f, 2.0f);
-	Point c(3.0f, 3.0f);
+	Point c(2.0f, 1.0f);
 	Point point(2.0f, 2.0f);
 	
 	if (bsp(a, b, c, point) == true)

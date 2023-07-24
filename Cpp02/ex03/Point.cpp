@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:26:50 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/22 18:11:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:58:48 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,12 @@ Point& Point::operator=(const Point& other)
 	return (*this);
 }
 
+Fixed Point::getX(void) const
+{
+	return (this->x);
+}
+
+Fixed Point::getY(void) const
+{
+	return (this->y);
+}
