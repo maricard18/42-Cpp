@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:21:59 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/25 13:51:32 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:35:33 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ class Point
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point);
-Fixed setArea(Point const a, Point const b, Point const c);
+Fixed setArea(Point const &a, Point const &b, Point const &c);
 
 #endif

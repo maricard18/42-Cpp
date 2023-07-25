@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/07/22 18:04:48 by maricard         ###   ########.fr        #
+#    Updated: 2023/07/25 16:28:54 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= triangle
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp Fixed.cpp Point.cpp bsq.cpp
+SRC		= main.cpp Fixed.cpp Point.cpp bsp.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
