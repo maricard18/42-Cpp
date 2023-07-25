@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 18:04:20 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/25 13:48:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:53:16 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Fixed setArea(Point const a, Point const b, Point const c)
 
 	w = (a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY()));
 	std::cout << "w = " << w << std::endl;
+	std::cout << "a.getX() = " << a.getX() << std::endl;
 	if (w < 0)
 		w = w * -1;
 	w = w * 0.5f;
