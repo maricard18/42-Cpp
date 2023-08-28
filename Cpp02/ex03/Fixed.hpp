@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:52 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/25 12:43:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:44:35 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 # include <iomanip>
 
 class Fixed

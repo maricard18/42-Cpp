@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:01:53 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:51:36 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:19:51 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap
 
 	public:
 		//! Constructors and destructor
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& copy);
 		~ClapTrap();

@@ -6,11 +6,16 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:10:14 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:50:44 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:20:10 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "Deafault Constructor was called" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
 {

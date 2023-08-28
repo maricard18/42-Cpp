@@ -6,11 +6,16 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:10:14 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:52:35 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:53:44 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "Deafault Constructor was called" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -40,7 +45,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (getHitPoints() <= 0 && getEnergyPoints() <= 0)
+	if (this->hit_points <= 0 && this->energy_points <= 0)
 	{
 		std::cout << "ClapTrap " << this->name << " is dead" << std::endl;
 		return ;
@@ -60,7 +65,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (getEnergyPoints() <= 0)
+	if (this->energy_points <= 0)
 	{
 		std::cout << "ClapTrap " << this->name << " is dead" << std::endl;
 		return ;	
@@ -69,44 +74,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << amount << " hit points!" << std::endl;
 	this->hit_points += amount;
 	this->energy_points -= 1;
-}
-
-std::string	ClapTrap::getName(void)
-{
-	return (this->name);
-}
-
-int		ClapTrap::getHitPoints(void)
-{
-	return (this->hit_points);
-}
-
-int		ClapTrap::getEnergyPoints(void)
-{
-	return (this->energy_points);
-}
-
-int		ClapTrap::getAttackDamage(void)
-{
-	return (this->attack_damage);
-}
-
-void	ClapTrap::setName(std::string name)
-{
-	this->name = name;
-}
-
-void	ClapTrap::setHitPoints(int hit_points)
-{
-	this->hit_points = hit_points;
-}
-
-void	ClapTrap::setEnergyPoints(int energy_points)
-{
-	this->energy_points = energy_points;
-}
-
-void	ClapTrap::setAttackDamage(int attack_damage)
-{
-	this->attack_damage = attack_damage;
 }

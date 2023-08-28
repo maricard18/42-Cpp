@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:47:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/07/25 12:44:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:46:50 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed(const int number)
 
 Fixed::Fixed(const float number)
 {
-	this->value = number * (1 << bits);
+	this->value = roundf(number * (1 << bits));
 }
 
 Fixed::Fixed(const Fixed& copy)

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:11:01 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/24 13:51:23 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:58:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,16 @@ class FragTrap : public ClapTrap
 
 	public:
 		//! Constructors and destructor
+		FragTrap();
 		FragTrap(std::string name);
+		FragTrap(const FragTrap& copy);
 		~FragTrap();
+
+		//! Operator overloading
+		FragTrap& operator=(const FragTrap& other);
 
 		//! Functions
 		void 	highFivesGuys(void);
-
 };
 
 #endif

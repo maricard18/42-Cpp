@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:04:46 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 17:10:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:43:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		void 	takeDamage(unsigned int amount);
 		void 	beRepaired(unsigned int amount);
 		void 	whoAmI(void);
-
-};
-
-#endif
-
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
-
-# include <iostream>
-
-class DiamondTrap
-{
-	private:
-
-	public:
-		//! Constructors and destructor
-		DiamondTrap();
-		DiamondTrap(const DiamondTrap& copy);
-		~DiamondTrap();
-
-		//! Operator overloading
-		DiamondTrap& operator=(const DiamondTrap& other);
-
-		//! Functions
 
 };
 

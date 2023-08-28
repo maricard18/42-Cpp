@@ -6,11 +6,16 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:12:43 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:53:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:54:20 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap()
+{
+	std::cout << "Default ScavTrap Constructor was called" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
@@ -41,13 +46,13 @@ void	ScavTrap::guardGate()
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (getHitPoints() <= 0 && getEnergyPoints() <= 0)
+	if (this->hit_points <= 0 && this->energy_points <= 0)
 	{
-		std::cout << "ClapTrap " << getName() << " is dead" << std::endl;
+		std::cout << "ClapTrap " << this->name << " is dead" << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << getName() << " attacks " << target,
-	std::cout << " causing " << getAttackDamage(),
+	std::cout << "ScavTrap " << this->name << " attacks " << target,
+	std::cout << " causing " << this->attack_damage,
 	std::cout << " points of damage!" << std::endl;
-	setEnergyPoints(getEnergyPoints() - 1);
+	this->energy_points -= 1;
 }
