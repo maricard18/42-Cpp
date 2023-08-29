@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/08/29 14:23:54 by maricard         ###   ########.fr        #
+#    Updated: 2023/08/29 18:30:02 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
 NAME	= animal
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC		= main.cpp
+SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)
