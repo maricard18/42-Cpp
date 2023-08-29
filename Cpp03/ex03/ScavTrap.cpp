@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:12:43 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 14:28:33 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:54:22 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (this->hit_points <= 0 && this->energy_points <= 0)
 	{
-		std::cout << "ScavTrap " << this->name << " is dead" << std::endl;
+		std::cout << "ScavTrap " << this->name << " is dead, attacked failed :(" << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap " << this->name << " attacks " << target,
