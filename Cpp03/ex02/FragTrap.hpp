@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:11:01 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/28 14:58:23 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:27:46 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 class FragTrap : public ClapTrap
 {
-	private:
-
 	public:
 		//! Constructors and destructor
 		FragTrap();
@@ -31,6 +29,7 @@ class FragTrap : public ClapTrap
 		FragTrap& operator=(const FragTrap& other);
 
 		//! Functions
+		void	attack(const std::string& target);
 		void 	highFivesGuys(void);
 };
 

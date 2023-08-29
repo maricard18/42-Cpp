@@ -6,13 +6,18 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:12:43 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 11:02:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:17 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap()
+{
+	std::cout << "Default FragTrap Constructor was called" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FragTrap Constructor was called" << std::endl;
 }
@@ -34,22 +39,20 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 	return (*this);
 }
 
-int		FragTrap::getHitPoints(void)
+void	FragTrap::attack(const std::string& target)
 {
-	return (this->hit_points);
+	if (this->hit_points <= 0 && this->energy_points <= 0)
+	{
+		std::cout << "FragTrap " << this->name << " is dead" << std::endl;
+		return ;
+	}
+	std::cout << "FragTrap " << this->name << " attacks " << target,
+	std::cout << " causing " << this->attack_damage,
+	std::cout << " points of damage!" << std::endl;
+	this->energy_points -= 1;
 }
 
-void	FragTrap::setHitPoints(int hit_points)
+void	FragTrap::highFivesGuys()
 {
-	this->hit_points = hit_points;
-}
-
-int		FragTrap::getAttackDamage(void)
-{
-	return (this->attack_damage);
-}
-
-void	FragTrap::setAttackDamage(int attack_damage)
-{
-	this->attack_damage = attack_damage;
+	std::cout << "FragTrap has requested high fives!" << std::endl;
 }

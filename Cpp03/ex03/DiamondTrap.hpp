@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:04:46 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/28 11:43:05 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:42:02 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 
 	public:
 		//! Constructors and destructor
+		DiamondTrap();
 		DiamondTrap(std::string name);
 		DiamondTrap(const DiamondTrap& copy);
 		~DiamondTrap();
@@ -33,10 +34,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap& operator=(const DiamondTrap& other);
 
 		//! Functions
-		void 	takeDamage(unsigned int amount);
-		void 	beRepaired(unsigned int amount);
+		using 	ScavTrap::attack;
 		void 	whoAmI(void);
-
 };
 
 #endif

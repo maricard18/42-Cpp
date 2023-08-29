@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:10:14 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/28 12:20:10 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:48:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,18 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	if (this == &other)
 		return (*this);
+	this->name = other.name;
+	this->hit_points = other.hit_points;
+	this->energy_points = other.energy_points;
+	this->attack_damage = other.attack_damage;
 	return (*this);
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (getHitPoints() <= 0 && getEnergyPoints() <= 0)
+	if (this->hit_points <= 0 || this->energy_points <= 0)
 	{
-		std::cout << "ClapTrap " << this->name << " is dead" << std::endl;
+		std::cout << "ClapTrap " << this->name << " is dead, attacked failed :(" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->name << " attacks " << target,
@@ -65,23 +69,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (getEnergyPoints() <= 0)
+	if (this->energy_points <= 0)
 	{
-		std::cout << "ClapTrap " << this->name << " is dead" << std::endl;
+		std::cout << "ClapTrap " << this->name << " is dead, repaired failed :(" << std::endl;
 		return ;	
 	}
 	std::cout << "ClapTrap " << this->name << " repairs itself with ",
 	std::cout << amount << " hit points!" << std::endl;
 	this->hit_points += amount;
 	this->energy_points -= 1;
-}
-
-int		ClapTrap::getHitPoints(void)
-{
-	return (this->hit_points);
-}
-
-int		ClapTrap::getEnergyPoints(void)
-{
-	return (this->energy_points);
 }

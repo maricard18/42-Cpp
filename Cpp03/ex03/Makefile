@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/08/24 14:03:49 by maricard         ###   ########.fr        #
+#    Updated: 2023/08/29 14:24:06 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= diamondtrap
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp ClapTrap.cpp FragTrap.cpp
+SRC		= main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 all: $(NAME)

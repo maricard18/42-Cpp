@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:11:01 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:57:20 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:27:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
+# include "ClapTrap.hpp"
 
-class FragTrap
+class FragTrap : virtual public ClapTrap
 {
-	private:
-		int		hit_points;
-		int		attack_damage;
-
 	public:
 		//! Constructors and destructor
+		FragTrap();
 		FragTrap(std::string name);
 		FragTrap(const FragTrap& copy);
 		~FragTrap();
@@ -31,12 +29,8 @@ class FragTrap
 		FragTrap& operator=(const FragTrap& other);
 
 		//! Functions
-		int		getHitPoints(void);
-		int		getAttackDamage(void);
-		void	setHitPoints(int hit_points);
-		void	setAttackDamage(int attack_damage);	
-
-
+		void	attack(const std::string& target);
+		void 	highFivesGuys(void);
 };
 
 #endif

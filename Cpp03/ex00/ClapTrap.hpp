@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:01:53 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/28 12:19:51 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:46:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ class ClapTrap
 		void 	attack(const std::string& target);
 		void 	takeDamage(unsigned int amount);
 		void 	beRepaired(unsigned int amount);
-		
-		//! Getters
-		int			getHitPoints(void);
-		int			getEnergyPoints(void);
-
 };
 
 #endif

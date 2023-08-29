@@ -6,13 +6,18 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:12:43 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/25 09:57:47 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:28:33 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap()
+{
+	std::cout << "Default ScavTrap Constructor was called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap Constructor was called" << std::endl;
 }
@@ -34,20 +39,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	return (*this);
 }
 
+void	ScavTrap::guardGate()
+{
+	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap " << getName() << " attacks " << target,
-	std::cout << " causing " << getAttackDamage(),
+	if (this->hit_points <= 0 && this->energy_points <= 0)
+	{
+		std::cout << "ScavTrap " << this->name << " is dead" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap " << this->name << " attacks " << target,
+	std::cout << " causing " << this->attack_damage,
 	std::cout << " points of damage!" << std::endl;
-	setEnergyPoints(getEnergyPoints() - 1);
-}
-
-int	ScavTrap::getEnergyPoints(void)
-{
-	return (this->energy_points);
-}
-
-void	ScavTrap::setEnergyPoints(int amount)
-{
-	this->energy_points = amount;
+	this->energy_points -= 1;
 }
