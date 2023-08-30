@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:22:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 13:02:45 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:35:06 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ class Brain
 		//! Constructors and destructor
 		Brain();
 		Brain(const Brain& copy);
-		~Brain();
+		virtual ~Brain();
 
 		//! Operator overloading
 		Brain& operator=(const Brain& other);
 
 		//! Setter
-		void	setIdea(std::string idea, int i);
+		void			setIdea(std::string idea, int i);
+		virtual void	storeIdeas() const = 0;
 
 		//! Getter
 		std::string getIdea(int i);

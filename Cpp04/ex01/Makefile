@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/08/30 14:41:20 by maricard         ###   ########.fr        #
+#    Updated: 2023/08/30 15:22:40 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
 NAME	= animal
-CFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
+CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 TARGET 	= $(SRC:.cpp=.o)
@@ -55,4 +55,10 @@ run: re
 		@clear
 		@echo "$(WHI)[$(GRE)running$(WHI)]$(RES)"
 		@./$(NAME)
+
+leaks: all
+		@valgrind --leak-check=full --show-leak-kinds=all --log-file=leaks.log ./$(NAME)
+
+rm: fclean
+		@rm leaks.log
 		
