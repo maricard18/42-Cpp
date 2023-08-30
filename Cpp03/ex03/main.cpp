@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:00:33 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 09:39:39 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/30 09:47:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int main(void)
 {
 	DiamondTrap	DiamondTrap("Jonny");
 
-	DiamondTrap.attack("Jack");
+	DiamondTrap.attack("Jack"); // ScavTrap member function
 	DiamondTrap.takeDamage(5);
 	DiamondTrap.beRepaired(5);
-	DiamondTrap.guardGate();
-	DiamondTrap.highFivesGuys();
+	DiamondTrap.guardGate(); // ScavTrap member function
+	DiamondTrap.highFivesGuys(); // FragTrap member function
 	DiamondTrap.whoAmI();
 }

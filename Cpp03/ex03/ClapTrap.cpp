@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:10:14 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 14:53:53 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/30 09:58:43 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->hit_points <= 0 && this->energy_points <= 0)
+	if (this->hit_points <= 0 || this->energy_points <= 0)
 	{
 		std::cout << "ClapTrap " << this->name << " is dead, attacked failed :(" << std::endl;
 		return ;
