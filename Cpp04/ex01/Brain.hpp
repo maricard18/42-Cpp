@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 15:20:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 15:01:48 by maricard         ###   ########.fr       */
+/*   Created: 2023/08/30 12:22:36 by maricard          #+#    #+#             */
+/*   Updated: 2023/08/30 13:02:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-class Animal
+class Brain
 {
 	protected:
-		std::string _type;
+		std::string _ideas[100];
 
 	public:
 		//! Constructors and destructor
-		Animal();
-		Animal(const Animal& copy);
-		virtual ~Animal();
+		Brain();
+		Brain(const Brain& copy);
+		~Brain();
 
 		//! Operator overloading
-		Animal& operator=(const Animal& other);
+		Brain& operator=(const Brain& other);
 
-		//! Functions
-		virtual void	makeSound() const;
+		//! Setter
+		void	setIdea(std::string idea, int i);
 
 		//! Getter
-		std::string	getType() const;
+		std::string getIdea(int i);
+
 };
 
 #endif

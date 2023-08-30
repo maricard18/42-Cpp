@@ -6,44 +6,42 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:26:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 19:35:16 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:05:56 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Animal.hpp"
 # include "Dog.hpp"
 # include "Cat.hpp"
+# include "Brain.hpp"
 # include "WrongAnimal.hpp"
 # include "WrongCat.hpp"
 
 void	extra_tests()
 {
-	const WrongAnimal* meta = new WrongAnimal();
-	const WrongAnimal* i = new WrongCat();
-
-	i->makeSound(); // should output the cat sound, but it won't work.
-	meta->makeSound(); // will output the original animal sound.
-
-	delete meta;
-	delete i;
 }
 
 void	main_tests()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal *Animals[10];
+	
+	// Defining that the first half of the array are Dogs
+	// Ang put Dog ideias into their Brain
+	for (int i = 0; i < 5; i++)
+	{
+		Animals[i] = new Dog();
+		//Animal[i]->storeIdeas();
+	}
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	// Defining that the first half of the array are Cats
+	// Ang put Cat ideias into their Brain
+	for (int i = 5; i < 10; i++)
+	{
+		Animals[i] = new Cat();
+		//Animal[i]->storeIdeas();
+	}
 
-	i->makeSound(); // will output the cat sound!
-	j->makeSound(); // will output the dog sound!
-	meta->makeSound(); // will output original the animal sound!
-
-	delete meta;
-	delete j;
-	delete i;	
+	//delete [] Animals;
 }
 
 int main()

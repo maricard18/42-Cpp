@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:21:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:24:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/08/30 14:53:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public Animal, public Brain
 {
+	private:
+		Brain	*_DogBrain;
+
 	public:
 		//! Constructors and destructor
 		Dog();
@@ -29,6 +33,7 @@ class Dog : public Animal
 
 		//! Functions
 		void	makeSound() const;
+		void	storeIdeas() const;
 };
 
 #endif
