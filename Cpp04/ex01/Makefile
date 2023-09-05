@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/08/30 15:22:40 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/05 12:42:11 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,10 @@ CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 TARGET 	= $(SRC:.cpp=.o)
+
+ifeq ($(SAN), 1)
+	CFLAGS += -g -fsanitize=address
+endif
 
 all: $(NAME)
 

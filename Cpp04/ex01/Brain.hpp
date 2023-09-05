@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:22:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 16:35:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:36:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class Brain
 
 		//! Setter
 		void			setIdea(std::string idea, int i);
-		virtual void	storeIdeas() const = 0;
 
 		//! Getter
 		std::string getIdea(int i);

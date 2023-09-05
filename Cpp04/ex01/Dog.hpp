@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:21:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 14:53:45 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:25:17 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog : public Animal, public Brain
+class Dog : public Animal
 {
 	private:
 		Brain	*_DogBrain;

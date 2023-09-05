@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:26:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 16:41:24 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:36:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,27 @@ void	extra_tests()
 
 void	main_tests()
 {
-	Animal *Animals = new Animal[10];
+	Animal *Animals[10];
+	int  	i = 0;
 	
 	// Defining that the first half of the array are Dogs
-	// Ang put Dog ideias into their Brain
-	for (int i = 0; i < 5; i++)
+	// put Dog ideias into their Brain
+	for (; i < 5; i++)
 	{
 		Animals[i] = new Dog();
-		Animals[i].storeIdeas();
+		Animals[i]->storeIdeas();
 	}
 
 	// Defining that the first half of the array are Cats
-	// Ang put Cat ideias into their Brain
-	for (int a = 5; a < 10; a++)
+	// put Cat ideias into their Brain
+	for (; i < 10; i++)
 	{
-		Animals[a] = new Cat();
-		Animals[a].storeIdeas();
+		Animals[i] = new Cat();
+		Animals[i]->storeIdeas();
 	}
 
-	delete [] Animals;
+	for (int k = 0; k < 10; k++)
+		delete Animals[k];
 }
 
 int main()
