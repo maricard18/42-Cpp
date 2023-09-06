@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 18:13:35 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 11:27:12 by maricard         ###   ########.fr       */
+/*   Created: 2023/08/29 15:21:07 by maricard          #+#    #+#             */
+/*   Updated: 2023/09/06 09:57:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class WrongAnimal
+class Dog : public Animal
 {
+	private:
+		Brain	*_DogBrain;
+
 	public:
 		//! Constructors and destructor
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal& copy);
-		virtual ~WrongAnimal();
+		Dog();
+		Dog(const Dog& copy);
+		~Dog();
 
 		//! Operator overloading
-		WrongAnimal& operator=(const WrongAnimal& other);
+		Dog& operator=(const Dog& other);
 
 		//! Functions
 		void	makeSound() const;
+		void	storeIdeas() const;
+		void	getIdea() const;
 };
 
 #endif

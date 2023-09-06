@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:20:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:26:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:46:48 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ class Animal
 
 		//! Getter
 		std::string	getType() const;
+
+		//! Setter
+		void		setType(std::string type);
 };
 
 #endif

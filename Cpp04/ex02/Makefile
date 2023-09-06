@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/06 12:43:53 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/06 10:02:20 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= animal
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp WrongCat.cpp
+SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)

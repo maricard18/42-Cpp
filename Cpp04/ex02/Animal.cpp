@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:23:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 13:39:53 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:16:06 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Animal::Animal()
 {
 	std::cout << "Animal default constructor called" << std::endl;
-	this->setType("Animal");
+	this->_type = "Animal";
 }
 
 Animal::Animal(const Animal& copy)
@@ -34,7 +34,7 @@ Animal& Animal::operator=(const Animal& other)
 	std::cout << "Animal operator overload constructor called" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->type = other.type;
+	this->_type = "Animal";
 	return (*this);
 }
 
@@ -45,10 +45,6 @@ void	Animal::makeSound() const
 
 std::string Animal::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }
 
-void	Animal::setType(std::string type)
-{
-	this->type = type;
-}

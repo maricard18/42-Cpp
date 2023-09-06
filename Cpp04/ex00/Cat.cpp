@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:27:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:25:49 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:39:59 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat()
 {
 	std::cout << "Cat default constructor called" << std::endl;
-	this->type = "Cat";
+	this->setType("Cat");
 }
 
 Cat::Cat(const Cat& copy)

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:21:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/05 12:25:17 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:32:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ class Dog : public Animal
 
 		//! Functions
 		void	makeSound() const;
-		void	storeIdeas() const;
+		void	storeIdeas(std::string idea) const;
+		void	getIdea() const;
 };
 
 #endif

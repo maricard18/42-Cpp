@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:28:40 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 19:01:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 14:08:50 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 # define WRONGCAT_HPP
 
 # include <iostream>
-# include "WrongAnimal.hpp"
+# include "Brain.hpp"
+# include "Animal.hpp"
 
-class WrongCat : public WrongAnimal
+class WrongCat : public Animal
 {
+	private:
+		Brain	*_WrongCatBrain;
+
 	public:
 		//! Constructors and destructor
 		WrongCat();
@@ -29,6 +33,8 @@ class WrongCat : public WrongAnimal
 
 		//! Functions
 		void	makeSound() const;
+		void	storeIdeas() const;
+		void	getIdea() const;
 };
 
 #endif

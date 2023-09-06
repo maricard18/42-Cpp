@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:27:55 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 13:51:15 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:20:44 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 Dog::Dog()
 {
 	std::cout << "Dog default constructor called" << std::endl;
-	this->setType("Dog");
+	this->_type = "Dog";
 	this->_DogBrain = new Brain();
-	this->storeIdeas("A Dog idea");
+	this->storeIdeas();
 }
 
 Dog::Dog(const Dog& copy)
@@ -37,9 +37,9 @@ Dog& Dog::operator=(const Dog& other)
 	std::cout << "Dog operator overload constructor called" << std::endl;
 	if (this == &other)
 		return (*this);
-	this->_type = other._type;
-	this->_DogBrain = new Brain(*other._DogBrain);
-	this->storeIdeas("A Dog idea");
+	this->_type = "Dog";
+	this->_DogBrain = new Brain();
+	this->storeIdeas();
 	return (*this);
 }
 
@@ -48,11 +48,11 @@ void	Dog::makeSound() const
 	std::cout << "awff awff" << std::endl;
 }
 
-void	Dog::storeIdeas(std::string idea) const
+void	Dog::storeIdeas() const
 {
 	for (int i = 0; i < 100; i++)
 	{
-		this->_DogBrain->setIdea(idea, i);
+		this->_DogBrain->setIdea("A Dog idea", i);
 	}
 	this->getIdea();
 }
