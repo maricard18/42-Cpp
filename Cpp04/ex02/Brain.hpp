@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:22:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 09:40:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/07 09:41:42 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class Brain
 
 		//! Getter
 		std::string	displayIdea(int i);
-
 };
 
 #endif
