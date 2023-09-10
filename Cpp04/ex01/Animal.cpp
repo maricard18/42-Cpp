@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:23:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 13:37:25 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:31:51 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Animal::Animal()
 {
 	std::cout << "Animal default constructor called" << std::endl;
-	this->setType("Animal");
+	this->_type = "Default";
 }
 
 Animal::Animal(const Animal& copy)
@@ -47,9 +47,3 @@ std::string Animal::getType() const
 {
 	return (this->_type);
 }
-
-void	Animal::setType(std::string type)
-{
-	this->_type = type;
-}
-

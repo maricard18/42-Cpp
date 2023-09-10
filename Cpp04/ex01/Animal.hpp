@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:20:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 13:36:37 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:33:47 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,7 @@ class Animal
 
 		//! Functions
 		virtual void	makeSound() const;
-
-		//! Getter
 		std::string	getType() const;
-
-		//! Setter
-		void		setType(std::string type);
 };
 
 #endif

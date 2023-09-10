@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:29:06 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:29:25 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:20:20 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 
 void	WrongCat::makeSound() const
 {
-	std::cout << "muuuuu muuuuuu" << std::endl;
+	std::cout << "miauuu miauuu" << std::endl;
 }

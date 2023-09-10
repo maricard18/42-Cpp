@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:27:55 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 13:51:15 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:31:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog()
 {
 	std::cout << "Dog default constructor called" << std::endl;
-	this->setType("Dog");
+	this->_type = "Dog";
 	this->_DogBrain = new Brain();
 	this->storeIdeas("A Dog idea");
 }

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:27:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 12:48:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:31:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat()
 {
 	std::cout << "Cat default constructor called" << std::endl;
-	this->setType("Cat");
+	this->_type = "Cat";
 	this->_CatBrain = new Brain();
 	this->storeIdeas("A Cat Idea");
 }

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:27:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:28:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:20:09 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "Wrong Animal sound" << std::endl;
+	std::cout << "Not an Animal sound" << std::endl;
 }
