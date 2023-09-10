@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:10:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/07 11:11:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:28:57 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
+		AMateria*	_materia[4];
+		int			_id;
 
 	public:
 		//! Constructors and destructor
@@ -30,8 +32,8 @@ class MateriaSource : public IMateriaSource
 		MateriaSource& operator=(const MateriaSource& other);
 
 		//! Functions
-		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const & type);
+		void 		learnMateria(AMateria*);
+		AMateria*	createMateria(std::string const & type);
 };
 
 #endif

@@ -6,11 +6,14 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:55:58 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/07 11:05:42 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:25:10 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "IMateria.hpp"
+# include "MateriaSource.hpp"
+# include "Character.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 
 int main()
 {

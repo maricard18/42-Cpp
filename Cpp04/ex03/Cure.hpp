@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:45:44 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/07 10:59:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:42:12 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # include <iostream>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Cure : public AMateria
 {
-	private:
-
 	public:
 		//! Constructors and destructor
 		Cure();
+		Cure(std::string const & type);
 		Cure(const Cure& copy);
 		~Cure();
 
@@ -31,7 +31,7 @@ class Cure : public AMateria
 
 		//! Functions
 		AMateria*	clone() const;
-
+		void use(ICharacter& target);
 };
 
 #endif

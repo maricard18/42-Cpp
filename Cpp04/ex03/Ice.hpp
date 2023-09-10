@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:45:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/07 11:00:13 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:42:07 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # include <iostream>
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
-	private:
-
 	public:
 		//! Constructors and destructor
 		Ice();
+		Ice(std::string const & type);
 		Ice(const Ice& copy);
 		~Ice();
 
@@ -31,6 +31,7 @@ class Ice : public AMateria
 
 		//! Functions
 		AMateria*	clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

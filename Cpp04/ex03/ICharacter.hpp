@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:02:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/07 11:19:53 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/10 11:30:08 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
-	private:
-
 	public:
-		//! Constructors and destructor
-		//ICharacter();
-		//ICharacter(const ICharacter& copy);
+		//! destructor
 		virtual ~ICharacter() {}
-
-		//! Operator overloading
-		//ICharacter& operator=(const ICharacter& other);
 
 		//! Functions
 		virtual std::string const & getName() const = 0;
