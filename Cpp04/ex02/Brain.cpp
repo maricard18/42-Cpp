@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:38:55 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/06 09:42:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:02:44 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
 	std::cout << "Brain default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = "empty idea";
 }
 
 Brain::Brain(const Brain& copy)

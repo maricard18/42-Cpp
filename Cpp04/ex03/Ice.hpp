@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:45:32 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:42:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:43:29 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Ice : public AMateria
 		Ice();
 		Ice(std::string const & type);
 		Ice(const Ice& copy);
-		~Ice();
+		virtual ~Ice();
 
 		//! Operator overloading
 		Ice& operator=(const Ice& other);

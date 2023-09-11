@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:45:44 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:42:12 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:43:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
 		Cure();
 		Cure(std::string const & type);
 		Cure(const Cure& copy);
-		~Cure();
+		virtual ~Cure();
 
 		//! Operator overloading
 		Cure& operator=(const Cure& other);

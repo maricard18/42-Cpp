@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:58:19 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:30:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:43:10 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AMateria
 		AMateria();
 		AMateria(std::string const & type);
 		AMateria(const AMateria& copy);
-		~AMateria();
+		virtual ~AMateria();
 
 		//! Operator overloading
 		AMateria& operator=(const AMateria& other);

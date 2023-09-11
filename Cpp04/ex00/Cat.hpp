@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:22:15 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:23:56 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:44:15 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 		//! Constructors and destructor
 		Cat();
 		Cat(const Cat& copy);
-		~Cat();
+		virtual ~Cat();
 
 		//! Operator overloading
 		Cat& operator=(const Cat& other);

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 17:02:08 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:42:36 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:14:36 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ Ice& Ice::operator=(const Ice& other)
 
 AMateria*	Ice::clone() const
 {
+	std::cout << "Ice clone called" << std::endl;
 	return (new Ice(*this));
 }
 
-void		Ice::use(ICharacter& target)
+void	Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " 
 			  << target.getName() << " *" 

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 17:02:20 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:42:44 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:14:29 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ Cure& Cure::operator=(const Cure& other)
 
 AMateria*	Cure::clone() const
 {
+	std::cout << "Cure clone called" << std::endl;
 	return (new Cure(*this));
 }
 
-void		Cure::use(ICharacter& target)
+void	Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " 
 			  << target.getName() 

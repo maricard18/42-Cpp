@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:42:31 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 12:42:03 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:06:08 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Character::Character()
 {
 	std::cout << "Character default constructor called" << std::endl;
 	this->_name = "Default";
-	this->_id = -1;
 	for (int i = 0; i < 4; i++)
 	{
 		this->_inventory[i] = NULL;
@@ -28,7 +27,6 @@ Character::Character(std::string const & name)
 {
 	std::cout << "Character constructor called" << std::endl;
 	this->_name = name;
-	this->_id = -1;
 	for (int i = 0; i < 4; i++)
 	{
 		this->_inventory[i] = NULL;
@@ -39,12 +37,22 @@ Character::Character(std::string const & name)
 Character::Character(const Character& copy)
 {
 	std::cout << "Character copy constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		this->_inventory[i] = NULL;
+		this->_unequiped[i] = NULL;
+	}
 	*this = copy;
 }
 
 Character::~Character()
 {
 	std::cout << "Character destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		delete this->_inventory[i];
+		delete this->_unequiped[i];
+	}
 }
 
 Character& Character::operator=(const Character& other)
@@ -53,11 +61,16 @@ Character& Character::operator=(const Character& other)
 	if (this == &other)
 		return (*this);
 	this->_name = other._name;
-	this->_id = other._id;
-
-	//! Do I have to delete something that was store statically ???
 	for (int i = 0; i < 4; i++)
+	{
+		delete this->_inventory[i];
 		this->_inventory[i] = other._inventory[i];
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		delete this->_unequiped[i];
+		this->_unequiped[i] = other._unequiped[i];
+	}
 	return (*this);
 }
 
@@ -68,17 +81,16 @@ std::string const&	Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	if (this->_id < 3)
+	for (int i = 0; i < 4; i++)
 	{
-		this->_id++;
-		this->_inventory[this->_id] = m;
-		std::cout << "Materia equiped on inventory slot -> " << this->_id << std::endl;
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			std::cout << "Materia equiped on inventory slot -> " << i << std::endl;
+			return ;
+		}
 	}
-	else
-	{
-		std::cout << this->_id << std::endl;
-		std::cout << "Inventory slots are full" << std::endl;
-	}
+	std::cout << "Inventory slots are full" << std::endl;
 }
 
 void	Character::unequip(int idx)

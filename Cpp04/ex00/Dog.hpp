@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:21:07 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 18:24:06 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:44:20 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 		//! Constructors and destructor
 		Dog();
 		Dog(const Dog& copy);
-		~Dog();
+		virtual ~Dog();
 
 		//! Operator overloading
 		Dog& operator=(const Dog& other);

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:10:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/10 11:28:57 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:07:26 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		AMateria*	_materia[4];
-		int			_id;
+		AMateria	*_materia[4];
 
 	public:
 		//! Constructors and destructor
 		MateriaSource();
 		MateriaSource(const MateriaSource& copy);
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		//! Operator overloading
 		MateriaSource& operator=(const MateriaSource& other);
