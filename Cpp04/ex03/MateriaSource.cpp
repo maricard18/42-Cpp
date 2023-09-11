@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 11:11:16 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/11 13:07:33 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:26:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_materia[i]->getType() == type)
 		{
-			std::cout << "Materia learned on slot -> " << i << std::endl;
+			std::cout << "Materia created on slot -> " << i << std::endl;
 			return (this->_materia[i]->clone());
 		}
 	}

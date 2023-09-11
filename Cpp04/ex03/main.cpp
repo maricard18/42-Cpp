@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 09:55:58 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/11 13:08:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:29:26 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int main_tests()
 	me->use(1, *bob);
 
 	// unequip an Cure, equip an Ice and use it
-	me->unequip(1);
-	tmp = src->createMateria("ice");
+	me->unequip(0);
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	me->use(1, *bob);
+	me->use(0, *bob);
 
 	delete bob;
 	delete me;
