@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:35 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/11 18:54:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:45:57 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Bureaucrat
 {
 	private:
-		std::string const name;
-		int	grade;
+		std::string const _name;
+		int	_grade;
 
 	public:
 		//! Constructors and destructor
@@ -41,12 +41,13 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
+
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw();
+				const char* what() const throw();
 		};
 };
 

@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/11 17:54:06 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/12 11:17:09 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= interface
+NAME	= bureaucrat
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= main.cpp Bureaucrat.cpp
