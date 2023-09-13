@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:03:22 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 13:11:00 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:53:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ void Form::beSigned(Bureaucrat &Bureaucrat)
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("FORM GRADE TOO HIGH");
+	return ( RED "FORM GRADE TOO HIGH" RESET);
 }
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("FORM GRADE TOO LOW");
+	return (RED "FORM GRADE TOO LOW" RESET);
 }
 
 std::ostream& operator<<(std::ostream &out, const Form &c)

@@ -78,22 +78,22 @@ void AForm::beSigned(Bureaucrat &Bureaucrat)
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return ("FORM GRADE TOO HIGH");
+	return ( RED "FORM GRADE TOO HIGH" RESET);
 }
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("FORM GRADE TOO LOW");
+	return (RED "FORM GRADE TOO LOW" RESET);
 }
 
 const char	*AForm::FormNotSignedException::what() const throw()
 {
-	return ("FORM NOT SIGNED");
+	return (RED "FORM NOT SIGNED" RESET);
 }
 
 const char	*AForm::FormNotExecutedException::what() const throw()
 {
-	return ("FORM NOT EXECUTED");
+	return (RED "FORM NOT EXECUTED" RESET);
 }
 
 std::ostream& operator<<(std::ostream &out, const AForm &c)

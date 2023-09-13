@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 20:29:30 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 20:55:18 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:51:03 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Intern
 {
 	private:
 		std::string _names[3];
-		void	*_functions[3];
+		AForm *_functions[3];
 
 	public:
 		//! Constructors and destructor
@@ -35,7 +35,7 @@ class Intern
 		Intern& operator=(const Intern& other);
 
 		//! Functions
-		void	*makeForm(std::string name, std::string target);
+		AForm	*makeForm(std::string name, std::string target);
 };
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 13:10:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:52:12 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
 void	main_tests()
 {

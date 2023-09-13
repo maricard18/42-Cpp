@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/13 20:20:46 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/13 23:14:21 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME	= intern
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp PresidentialPardonForm.cpp Inter.cpp
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:19:30 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:38 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 00:12:53 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
-	std::cout << "PresidentialPardonForm operator overload constructor called" << std::endl;
+	std::cout << "PresidentialPardonForm operator overload constructor called" 
+			  << std::endl;
 	if (this == &other)
 		return (*this);
 	return (*this);
@@ -54,7 +55,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor)
 
 void	PresidentialPardonForm::action() const
 {
-	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << GREEN << this->_target 
+			  << " has been pardoned by Zafod Beeblebrox"
+			  << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &out, const PresidentialPardonForm &c)

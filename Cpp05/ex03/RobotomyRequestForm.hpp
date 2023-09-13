@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:17:36 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 19:15:49 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:36:53 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include <stdlib.h>
 # include "AForm.hpp"
 

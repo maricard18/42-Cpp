@@ -6,11 +6,11 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 11:03:02 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 00:07:39 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
 void	value_tests()
 {
@@ -25,6 +25,7 @@ void	value_tests()
 		std::cout << student;
 		student.decrementGrade();
 		std::cout << student;
+		std::cout << std::endl;
 	}
 	catch(const Bureaucrat::GradeTooHighException &b)
 	{
@@ -57,44 +58,11 @@ void	value_tests()
 	}
 }
 
-void	main_tests()
-{
-	try
-	{
-		//! grade in range
-		Bureaucrat student("Mario", 30);
-
-		//! grade lower than minimum grade
-		//Bureaucrat student("Mario", 151);
-
-		//! grade higher than maximum grade
-		//Bureaucrat student("Mario", 0);
-		
-		std::cout << student;
-	}
-	catch(const Bureaucrat::GradeTooHighException &b)
-	{
-		std::cout << std::endl << b.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &b)
-	{
-		std::cout << std::endl << b.what() << std::endl;
-	}
-}
-
 int main()
 {
 	std::cout << std::endl 
 			  << "\033[1;31m"
-			  << "MAIN TESTS"
-			  << "\033[0m" 
-			  << std::endl 
-			  << std::endl;
-	main_tests();
-
-	std::cout << std::endl 
-			  << "\033[1;31m"
-			  << "EXTRA TESTS" 
+			  << "VALUE TESTS" 
 			  << "\033[0m" 
 			  << std::endl 
 			  << std::endl;  

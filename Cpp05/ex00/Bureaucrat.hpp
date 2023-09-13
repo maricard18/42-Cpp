@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:35 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/12 10:45:57 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:52:04 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define RESET "\033[0m"
 
 class Bureaucrat
 {

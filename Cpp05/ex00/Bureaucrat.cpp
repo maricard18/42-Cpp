@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:49:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 16:12:24 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 00:18:49 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	std::cout << "Incrementing grade by one : " << this->_grade - 1 << std::endl;
+	std::cout << "Incrementing grade by one : " 
+			  << this->_grade - 1 
+			  << std::endl;
 	if (this->_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;
@@ -69,7 +71,9 @@ void	Bureaucrat::incrementGrade()
 
 void	Bureaucrat::decrementGrade()
 {
-	std::cout << "Descrementing grade by one : " << this->_grade + 1 << std::endl;
+	std::cout << "Descrementing grade by one : " 
+			  << this->_grade + 1 
+			  << std::endl;
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
@@ -77,12 +81,12 @@ void	Bureaucrat::decrementGrade()
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("GRADE TO HIGH");
+	return (RED "GRADE TO HIGH" RESET);
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("GRADE TO LOW");
+	return (RED "GRADE TO LOW" RESET);
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &c)

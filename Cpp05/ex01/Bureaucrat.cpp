@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:49:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 18:01:29 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 00:19:42 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	std::cout << "Incrementing grade by one : " << this->_grade - 1 << std::endl;
+	std::cout << "Incrementing grade by one : " 
+			  << this->_grade - 1 
+			  << std::endl;
 	if (this->_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;
@@ -69,7 +71,9 @@ void	Bureaucrat::incrementGrade()
 
 void	Bureaucrat::decrementGrade()
 {
-	std::cout << "Descrementing grade by one : " << this->_grade + 1 << std::endl;
+	std::cout << "Descrementing grade by one : " 
+			  << this->_grade + 1 
+			  << std::endl;
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
@@ -78,19 +82,24 @@ void	Bureaucrat::decrementGrade()
 void	Bureaucrat::signForm(Form &f)
 {
 	if (f.getStatus() == true)
-		std::cout << this->_name << " signed " << f.getName() << " form" << std::endl;
+		std::cout << this->_name 
+				  << " signed " 
+				  << f.getName() 
+				  << " form" 
+				  << std::endl;
 	else
-		std::cout << this->_name << " couldn't signed form because grade to low.";
+		std::cout << this->_name 
+				  << " couldn't signed form because grade to low.";
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("BUREAUCRAT GRADE TOO HIGH");
+	return (RED "BUREAUCRAT GRADE TOO HIGH" RESET);
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("BUREAUCRAT GRADE TOO LOW");
+	return (RED "BUREAUCRAT GRADE TOO LOW" RESET);
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &c)

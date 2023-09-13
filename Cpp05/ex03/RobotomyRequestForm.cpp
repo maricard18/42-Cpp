@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:17:50 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:42 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 00:14:06 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
-	std::cout << "RobotomyRequestForm operator overload constructor called" << std::endl;
+	std::cout << "RobotomyRequestForm operator overload constructor called" 
+			  << std::endl;
 	if (this == &other)
 		return (*this);
 	return (*this);
@@ -53,11 +54,17 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 
 void	RobotomyRequestForm::action() const
 {
-	std::cout << "* drilling noises *" << std::endl;
+	srand(time(0));
+
+	std::cout << GREEN "* drilling noises *" RESET << std::endl;
 	if (rand() % 2 == 0)
-		std::cout << this->_target << " has been robotomized successfully" << std::endl;
+		std::cout << GREEN << this->_target 
+				  << " has been robotomized successfully" 
+				  << RESET << std::endl;
 	else
-		std::cout << this->_target << " robotomization failed" << std::endl;
+		std::cout << RED << this->_target 
+				  << " robotomization failed" 
+				  << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &out, const RobotomyRequestForm &c)
