@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 18:30:45 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:33:18 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,27 +150,18 @@ void	presidential_tests()
 int main()
 {
 	std::cout << std::endl 
-			  << "\033[1;31m"
-			  << "SHRUBBERY TESTS"
-			  << "\033[0m" 
-			  << std::endl 
-			  << std::endl;
+			  << "\033[1;31mSHRUBBERY TESTS \033[0m" 
+			  << std::endl << std::endl;
 	shrubbery_tests();
 
 	std::cout << std::endl 
-			  << "\033[1;31m"
-			  << "ROBOTOMY TESTS"
-			  << "\033[0m" 
-			  << std::endl 
-			  << std::endl;
+			  << "\033[1;31mROBOTOMY TESTS \033[0m" 
+			  << std::endl << std::endl;
 	robotomy_tests();
 
 	std::cout << std::endl 
-			  << "\033[1;31m"
-			  << "PRESDENTIAL TESTS"
-			  << "\033[0m" 
-			  << std::endl 
-			  << std::endl;
+			  << "\033[1;31mPRESDENTIAL TESTS \033[0m" 
+			  << std::endl << std::endl;
 	presidential_tests();
 
 	std::cout << std::endl;
