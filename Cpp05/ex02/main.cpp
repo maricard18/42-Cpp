@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 18:33:18 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:38:10 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	shrubbery_tests()
 	{
 		//! ShrubberyCreationForm
 		Bureaucrat person1("Mario", 100);
-		AForm *shrubbery_form = new ShrubberyCreationForm();
+		AForm *shrubbery_form = new ShrubberyCreationForm("bathroom");
 	
 		std::cout << person1;
 		//std::cout << shrubbery_form;
@@ -64,8 +64,8 @@ void	robotomy_tests()
 	try
 	{
 		//! RobotomyRequestForm
-		Bureaucrat person2("Mario", 120);
-		AForm *robotomy_form = new RobotomyRequestForm();
+		Bureaucrat person2("Mario", 50);
+		AForm *robotomy_form = new RobotomyRequestForm("bedroom");
 		
 		std::cout << person2;
 		//std::cout << robotomy_form;
@@ -108,11 +108,11 @@ void	presidential_tests()
 	try
 	{
 		//! PresidentialPardonForm
-		Bureaucrat person3("Mario", 100);
-		AForm *presidential_form = new PresidentialPardonForm();
+		Bureaucrat person3("Mario", 5);
+		AForm *presidential_form = new PresidentialPardonForm("kitchen");
 		
 		std::cout << person3;
-		//std::cout << presidential_form;
+		std::cout << presidential_form;
 
 		presidential_form->beSigned(person3);
 		person3.signForm(*presidential_form);

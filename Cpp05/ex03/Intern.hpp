@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 16:19:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:34 by maricard         ###   ########.fr       */
+/*   Created: 2023/09/13 20:29:30 by maricard          #+#    #+#             */
+/*   Updated: 2023/09/13 20:55:18 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 # include <iostream>
 # include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-class PresidentialPardonForm : public AForm
+class Intern
 {
 	private:
-		std::string	_target;
+		std::string _names[3];
+		void	*_functions[3];
 
 	public:
 		//! Constructors and destructor
-		PresidentialPardonForm();
-		PresidentialPardonForm(std::string target);
-		PresidentialPardonForm(const PresidentialPardonForm& copy);
-		~PresidentialPardonForm();
+		Intern();
+		Intern(const Intern& copy);
+		~Intern();
 
 		//! Operator overloading
-		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+		Intern& operator=(const Intern& other);
 
 		//! Functions
-		void	execute(Bureaucrat const & executor);
-		void	action() const;
+		void	*makeForm(std::string name, std::string target);
 };
-
-std::ostream& operator<<(std::ostream &out, const PresidentialPardonForm &c);
-
 
 #endif

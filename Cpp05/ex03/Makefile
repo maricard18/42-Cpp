@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/13 20:21:14 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/13 20:20:46 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= moreForms
+NAME	= intern
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
 SRC		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp Inter.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)
