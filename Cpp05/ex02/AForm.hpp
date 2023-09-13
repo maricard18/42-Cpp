@@ -23,13 +23,13 @@ class AForm
 	private:
 		std::string const _name;
 		bool _status;
-		int const _grade;
-		int const _grade_nedded;
+		int const _grade_to_sign;
+		int const _grade_to_execute;
 
 	public:
 		//! Constructors and destructor
 		AForm();
-		AForm(std::string const name, int const grade, int const grade_nedded);
+		AForm(std::string const name, int const grade_sign, int const grade_nedded);
 		AForm(const AForm& copy);
 		virtual ~AForm();
 
@@ -39,8 +39,8 @@ class AForm
 		//! Functions
 		std::string 	getName() const;
 		bool 			getStatus();
-		int 			getGrade() const;
-		int				getGradeNedded() const;
+		int 			getGradeToSign() const;
+		int				getGradeToExecute() const;
 		void			beSigned(Bureaucrat &bureaucrat);
 		virtual void	execute(Bureaucrat const & executor) = 0;
 		
@@ -52,6 +52,18 @@ class AForm
 		};
 
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		class FormNotExecutedException : public std::exception
 		{
 			public:
 				const char* what() const throw();

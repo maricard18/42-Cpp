@@ -12,23 +12,24 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("AForm"), _status(false), _grade(-1), _grade_nedded(-1)
+AForm::AForm() : 
+	_name(""), _status(false), _grade_to_sign(0), _grade_to_execute(0)
 {
 	std::cout << "AForm default constructor called" << std::endl;
 }
 
-AForm::AForm(std::string const name, int const grade, int const grade_nedded) :
-	_name(name), _status(false), _grade(grade), _grade_nedded(grade_nedded)
+AForm::AForm(std::string const name, int const grade_to_sign, int const grade_to_execute) :
+	_name(name), _status(false), _grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
-	std::cout << "Bureaucrat constructor called" << std::endl;
-	if (grade < 1 || grade_nedded < 1)
+	std::cout << "AForm constructor called" << std::endl;
+	if (grade_to_sign < 1 || grade_to_execute < 1)
 		throw AForm::GradeTooHighException();
-	else if (grade > 150 || grade_nedded > 150)
+	else if (grade_to_sign > 150 || grade_to_execute > 150)
 		throw AForm::GradeTooLowException();
 }
 
 AForm::AForm(const AForm& copy) : _name(copy._name), _status(copy._status),
-	_grade(copy._grade), _grade_nedded(copy._grade_nedded)
+	_grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute)
 {
 	std::cout << "AForm copy constructor called" << std::endl;
 	*this = copy;
@@ -44,10 +45,6 @@ AForm& AForm::operator=(const AForm& other)
 	std::cout << "AForm operator overload constructor called" << std::endl;
 	if (this == &other)
 		return (*this);
-
-	AForm tmp(other._name, other._grade, other._grade_nedded);
-	*this = tmp;
-
 	return (*this);
 }
 
@@ -61,19 +58,19 @@ bool AForm::getStatus()
 	return (this->_status);
 }
 
-int AForm::getGrade() const
+int AForm::getGradeToSign() const
 {
-	return (this->_grade);
+	return (this->_grade_to_sign);
 }
 
-int AForm::getGradeNedded() const
+int AForm::getGradeToExecute() const
 {
-	return (this->_grade_nedded);
+	return (this->_grade_to_execute);
 }
 
 void AForm::beSigned(Bureaucrat &Bureaucrat)
 {
-	if (Bureaucrat.getGrade() > this->_grade_nedded)
+	if (Bureaucrat.getGrade() > this->_grade_to_sign)
 		throw AForm::GradeTooLowException();
 	else
 		this->_status = true;	
@@ -81,21 +78,31 @@ void AForm::beSigned(Bureaucrat &Bureaucrat)
 
 const char	*AForm::GradeTooHighException::what() const throw()
 {
-	return ("AFORM GRADE TOO HIGH");
+	return ("FORM GRADE TOO HIGH");
 }
 
 const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("AFORM GRADE TOO LOW");
+	return ("FORM GRADE TOO LOW");
+}
+
+const char	*AForm::FormNotSignedException::what() const throw()
+{
+	return ("FORM NOT SIGNED");
+}
+
+const char	*AForm::FormNotExecutedException::what() const throw()
+{
+	return ("FORM NOT EXECUTED");
 }
 
 std::ostream& operator<<(std::ostream &out, const AForm &c)
 {
 	out << c.getName() 
-		<< " form needs grade "
-		<< c.getGradeNedded()
-		<< ", Bureaucrat grade "
-		<< c.getGrade() 
+		<< " form to be signed needs grade "
+		<< c.getGradeToSign()
+		<< " and to be executed grade "
+		<< c.getGradeToExecute()
 		<< std::endl;
 	return out;
 }

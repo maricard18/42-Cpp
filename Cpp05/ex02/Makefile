@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/12 12:51:42 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/13 17:50:04 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ AR 		= ar -rcs
 NAME	= form
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC		= main.cpp Bureaucrat.cpp Form.cpp
+SRC		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)

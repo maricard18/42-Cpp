@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:57:01 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/12 13:28:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:32:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ class Form
 	private:
 		std::string const _name;
 		bool _status;
-		int const _grade;
-		int const _grade_nedded;
+		int const _grade_to_sign;
+		int const _grade_to_execute;
 
 	public:
 		//! Constructors and destructor
 		Form();
-		Form(std::string const name, int const grade, int const grade_nedded);
+		Form(std::string const name, int grade, int const grade_to_sign);
 		Form(const Form& copy);
 		~Form();
 
@@ -39,8 +39,8 @@ class Form
 		//! Functions
 		std::string getName() const;
 		bool 		getStatus();
-		int 		getGrade() const;
-		int			getGradeNedded() const;
+		int 		getGradeToSign() const;
+		int			getGradeToExecute() const;
 		void		beSigned(Bureaucrat &bureaucrat);
 		
 		//! Exceptions

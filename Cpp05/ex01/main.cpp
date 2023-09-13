@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/12 13:47:15 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:10:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	main_tests()
 	try
 	{
 		Bureaucrat student("Mario", 10);
-		Form form("Hospital", student.getGrade(), 1);
+		Form form("Hospital", student.getGrade(), 11);
 		
 		//! grade lower than grade nedded
 		//Bureaucrat student("Mario", 2);

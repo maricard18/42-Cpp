@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:35 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/12 16:51:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:36:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm &f);
+		void		executeForm(AForm const & form);
 
 		//! Exceptions
 		class GradeTooHighException : public std::exception
