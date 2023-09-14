@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/14 12:22:42 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:51:36 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ void	value_tests()
 	try
 	{
 		//! grade in range
-		Bureaucrat student("Mario", 1);
-		Bureaucrat student2("Luigi", 150);
-
-		student = student2;
+		Bureaucrat student("Mario", 2);
 
 		//! grade will be higher than maximum grade
 		//Bureaucrat student("Mario", 1);
