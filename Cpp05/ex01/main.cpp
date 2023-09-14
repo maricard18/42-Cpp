@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 22:52:12 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:47:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	main_tests()
 	try
 	{
 		Bureaucrat student("Mario", 10);
-		Form form("Hospital", student.getGrade(), 11);
+		Form form("Hospital", student.getGrade(), 15);
 		
 		//! grade lower than grade nedded
 		//Bureaucrat student("Mario", 2);
@@ -33,19 +33,7 @@ void	main_tests()
 		form.beSigned(student);
 		student.signForm(form);
 	}
-	catch(const Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Form::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Form::GradeTooLowException &e)
+	catch(std::exception &e)
 	{
 		std::cout << std::endl << e.what() << std::endl;
 	}

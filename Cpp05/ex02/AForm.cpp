@@ -71,7 +71,7 @@ int AForm::getGradeToExecute() const
 void AForm::beSigned(Bureaucrat &Bureaucrat)
 {
 	if (Bureaucrat.getGrade() > this->_grade_to_sign)
-		throw AForm::GradeTooLowException();
+		this->_status = false;
 	else
 		this->_status = true;	
 }

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:03:22 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 23:53:14 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:45:59 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int Form::getGradeToExecute() const
 void Form::beSigned(Bureaucrat &Bureaucrat)
 {
 	if (Bureaucrat.getGrade() > this->_grade_to_sign)
-		throw Form::GradeTooLowException();
+		this->_status = false;
 	else
 		this->_status = true;	
 }

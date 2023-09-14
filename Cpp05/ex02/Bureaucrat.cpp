@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:49:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/14 00:18:20 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:53:06 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,37 @@ void	Bureaucrat::decrementGrade()
 void	Bureaucrat::signForm(AForm &f)
 {
 	if (f.getStatus() == true)
-		std::cout << this->_name 
+		std::cout << GREEN 
+				  << this->_name 
 				  << " signed " 
 				  << f.getName() 
 				  << " form" 
+				  << RESET
 				  << std::endl;
 	else
-		std::cout << this->_name 
-				  << " couldn't signed form because grade to low.";
+		std::cout << RED 
+				  << this->_name 
+				  << " couldn't sign form because grade to low."
+				  << RESET
+				  << std::endl;
 }
 
 void	Bureaucrat::executeForm(AForm const & form)
 {
 	if (this->getGrade() > form.getGradeToExecute())
-		std::cout << this->_name 
+		std::cout << RED
+				  << this->_name 
 				  << " couldn't execute " 
-				  << form.getName() 
+				  << form.getName()
+				  << RESET
 				  << std::endl;
 	else
 	{
-		std::cout << this->_name 
+		std::cout << GREEN
+				  << this->_name 
 				  << " executes " 
 				  << form.getName() 
+				  << RESET
 				  << std::endl;
 		form.action();
 	}

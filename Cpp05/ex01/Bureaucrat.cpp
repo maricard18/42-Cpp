@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:49:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/14 00:19:42 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:46:15 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	std::cout << "Bureaucrat operator overload constructor called" << std::endl;
+	std::cout << "Bureaucrat operator overload constructor called" 
+			  << std::endl;
 	if (this == &other)
 		return (*this);
 
@@ -82,14 +83,19 @@ void	Bureaucrat::decrementGrade()
 void	Bureaucrat::signForm(Form &f)
 {
 	if (f.getStatus() == true)
-		std::cout << this->_name 
+		std::cout << GREEN
+				  << this->_name 
 				  << " signed " 
 				  << f.getName() 
 				  << " form" 
+				  << RESET
 				  << std::endl;
 	else
-		std::cout << this->_name 
-				  << " couldn't signed form because grade to low.";
+		std::cout << RED 
+				  << this->_name 
+				  << " couldn't sign form because grade to low."
+				  << RESET
+				  << std::endl;
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()

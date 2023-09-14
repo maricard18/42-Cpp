@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/14 00:07:39 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:22:42 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ void	value_tests()
 		std::cout << student;
 		student.decrementGrade();
 		std::cout << student;
-		std::cout << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooHighException &b)
+	catch(std::exception &e)
 	{
-		std::cout << std::endl << b.what() << std::endl << std::endl;
+		std::cout << std::endl << e.what() << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooLowException &b)
-	{
-		std::cout << std::endl << b.what() << std::endl << std::endl;
-	}
+
+	std::cout << std::endl;
 
 	try
 	{
 		//! grade in range
-		Bureaucrat student("Mario", 2);
+		Bureaucrat student("Mario", 1);
+		Bureaucrat student2("Luigi", 150);
+
+		student = student2;
 
 		//! grade will be higher than maximum grade
 		//Bureaucrat student("Mario", 1);
@@ -48,13 +48,9 @@ void	value_tests()
 		student.incrementGrade();
 		std::cout << student;
 	}
-	catch(const Bureaucrat::GradeTooHighException &b)
+	catch(std::exception &e)
 	{
-		std::cout << std::endl << b.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &b)
-	{
-		std::cout << std::endl << b.what() << std::endl;
+		std::cout << std::endl << e.what() << std::endl;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:54:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/13 23:49:08 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:59:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	shrubbery_tests()
 {
 	try
 	{
-		//! ShrubberyCreationForm
-		Bureaucrat person("Mario", 5);
+		//! ShrubberyCreationForm (145, 137)
+		Bureaucrat person("Mario", 130);
 		Intern someRandomIntern;
 		AForm* rrf;
 
@@ -37,27 +37,7 @@ void	shrubbery_tests()
 		rrf->execute(person);
 		person.executeForm(*rrf);
 	}
-	catch(const Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotSignedException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotExecutedException &e)
+	catch(std::exception &e)
 	{
 		std::cout << std::endl << e.what() << std::endl;
 	}
@@ -67,8 +47,8 @@ void	robotomy_tests()
 {
 	try
 	{
-		//! RobotomyRequestForm
-		Bureaucrat person("Mario", 5);
+		//! RobotomyRequestForm (72, 45)
+		Bureaucrat person("Mario", 30);
 		Intern someRandomIntern;
 		AForm* rrf;
 
@@ -84,27 +64,7 @@ void	robotomy_tests()
 		rrf->execute(person);
 		person.executeForm(*rrf);
 	}
-	catch(const Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotSignedException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotExecutedException &e)
+	catch(std::exception &e)
 	{
 		std::cout << std::endl << e.what() << std::endl;
 	}
@@ -114,8 +74,8 @@ void	presidential_tests()
 {
 	try
 	{
-		//! PresidentialPardonForm
-		Bureaucrat person("Mario", 10);
+		//! PresidentialPardonForm (25, 5)
+		Bureaucrat person("Mario", 1);
 		Intern someRandomIntern;
 		AForm* rrf;
 
@@ -131,27 +91,7 @@ void	presidential_tests()
 		rrf->execute(person);
 		person.executeForm(*rrf);
 	}
-	catch(const Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooHighException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::GradeTooLowException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotSignedException &e)
-	{
-		std::cout << std::endl << e.what() << std::endl;
-	}
-	catch(const AForm::FormNotExecutedException &e)
+	catch(std::exception &e)
 	{
 		std::cout << std::endl << e.what() << std::endl;
 	}

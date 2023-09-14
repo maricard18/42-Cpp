@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:49:29 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/14 00:18:49 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:20:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : 
+	_name(copy._name), _grade(copy._grade)
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = copy;
@@ -39,13 +40,10 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	std::cout << "Bureaucrat operator overload constructor called" << std::endl;
+	std::cout << "Bureaucrat operator overload constructor called" 
+			  << std::endl;
 	if (this == &other)
 		return (*this);
-
-	Bureaucrat tmp(other._name, other._grade);
-	*this = tmp;
-
 	return *this;
 }
 
@@ -81,12 +79,12 @@ void	Bureaucrat::decrementGrade()
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (RED "GRADE TO HIGH" RESET);
+	return (RED "BUREAUCRAT GRADE TO HIGH" RESET);
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (RED "GRADE TO LOW" RESET);
+	return (RED "BUREAUCRAT GRADE TO LOW" RESET);
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &c)
