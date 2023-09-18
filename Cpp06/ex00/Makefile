@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/14 22:20:12 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/18 12:26:30 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= converter
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC		= main.cpp Bureaucrat.cpp
+SRC		= main.cpp ScalarConverter.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)
