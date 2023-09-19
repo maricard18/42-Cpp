@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:03:54 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/18 12:29:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:57:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	scalar_converter(char *input)
 {
 	try
 	{
-		ScalarConverter scalar(input);
-		scalar.convert();
+		ScalarConverter::checkType(input);
 	}
 	catch(const std::exception& e)
 	{

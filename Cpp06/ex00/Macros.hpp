@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:38:34 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/18 19:22:28 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:02:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # define INVALID_INPUT 1
 # define VALID_INPUT 2
+# define CHAR 2
+# define INT 2
+# define FLOAT 2
+# define DOUBLE 2
 # define ISCHAR 3
 # define NOT_DISPLAYABLE 4
 # define IMPOSSIBLE 5

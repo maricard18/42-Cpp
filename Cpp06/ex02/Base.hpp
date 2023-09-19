@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 09:22:00 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 09:43:15 by maricard         ###   ########.fr       */
+/*   Created: 2023/09/19 11:04:23 by maricard          #+#    #+#             */
+/*   Updated: 2023/09/19 16:33:59 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 # include <iostream>
+# include <cstdlib>
 
-typedef struct	s_Data
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define RESET "\033[0m"
+
+class Base
 {
-	int 	i;
-}				Data;
+	public:
+		virtual ~Base();
+};
+
+Base*	generate(void);
+void 	identify(Base* p);
+void 	identify(Base& p);
 
 #endif

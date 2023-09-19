@@ -6,23 +6,18 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:03:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/18 19:38:09 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:49:26 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() : _input("")
-{
-}
-
-ScalarConverter::ScalarConverter(std::string input) : _input(input)
+ScalarConverter::ScalarConverter()
 {
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& copy)
 {
-	this->_input = copy._input;
 	*this = copy;
 }
 
@@ -37,7 +32,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 	return (*this);
 }
 
-int 	ScalarConverter::mainChecker()
+int 	ScalarConverter::mainChecker(std::string input)
 {
 	int ch = 0;
 	int nb = 0;
@@ -45,110 +40,63 @@ int 	ScalarConverter::mainChecker()
 	int f = 0;
 	int signal = 0;
 
-	if (this->checkFunStuff() != 0)
+	if (ScalarConverter::checkFunStuff(input) != 0)
 		return VALID_INPUT;
 
-	for (int i = 0; this->_input[i]; i++)
+	for (int i = 0; input[i]; i++)
 	{
-		if (this->_input[i] >= '0' && this->_input[i] <= '9')
+		if (input[i] >= '0' && input[i] <= '9')
 			nb++;
-		else if (this->_input[i] == '-' || this->_input[i] == '+')
+		else if (input[i] == '-' || input[i] == '+')
 			signal++;
-		else if (this->_input[i] == '.')
+		else if (input[i] == '.')
 			dot++;
-		else if (this->_input[i] == 'f')
+		else if (input[i] == 'f')
 			f++;
-		else if (this->_input[i] < '0' || this->_input[i] > '9')
+		else if (input[i] < '0' || input[i] > '9')
 			ch++;
 	}
 
 	if ((ch > 0 && nb > 0) || ch > 1 || f > 1 || dot > 1 || signal > 1)
 		return INVALID_INPUT;
 	else
-		return VALID_INPUT;
-}	
-
-int		ScalarConverter::checkChar()
-{
-	if (this->checkFunStuff() != 0)
-		return IMPOSSIBLE;
-	else if (isdigit(this->_input[0]))
 	{
-		if (atoi(this->_input.c_str()) < 32)
-			return NOT_DISPLAYABLE;
-		else if (atoi(this->_input.c_str()) > 126)
-			return OVERFLOW;		
+		if (f)
+			return FLOAT;
+		else if (dot)
+			return DOUBLE;
+		else if (nb)
+			return INT;
+		else 
+			return CHAR;
 	}
-	else if (this->_input[0] == '-' && isdigit(this->_input[1]))
-		return NOT_DISPLAYABLE;
-	else if (isalpha(this->_input[0]))
-		return ISCHAR; 
-
-	return 0;
 }
 
-int 	ScalarConverter::checkInt()
+void	ScalarConverter::checkType(std::string input)
 {
-	long number = static_cast<long>(atol(this->_input.c_str()));
-
-	if (this->checkFunStuff() != 0)
-		return IMPOSSIBLE;
-	else if (this->_input[0] == '-' && isdigit(this->_input[1]))
-		return 0;
-	else if (isprint(this->_input[0]) && !isdigit(this->_input[0]))
-		return ISCHAR;
-	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
-		return OVERFLOW;
-
-	return 0;
-}
-
-int		ScalarConverter::checkFloat()
-{
-	if (this->checkFunStuff() == NANF || this->checkFunStuff() == NANF)
-		return NANF;
-	else if (this->checkFunStuff() == INF_N || this->checkFunStuff() == INFF_N)
-		return INFF_N;
-	else if (this->checkFunStuff() == INF_P || this->checkFunStuff() == INFF_P)
-		return INFF_P;
-	else if (this->_input[0] == '-' && isdigit(this->_input[1]))
-		return 0;
-	else if (isprint(this->_input[0]) && !isdigit(this->_input[0]))
-		return ISCHAR;
-
-	return 0;
-}
-
-int		ScalarConverter::checkDouble()
-{
-	if (this->checkFunStuff() == NANF || this->checkFunStuff() == NANF)
-		return NAN;
-	else if (this->checkFunStuff() == INF_N || this->checkFunStuff() == INFF_N)
-		return INF_N;
-	else if (this->checkFunStuff() == INF_P || this->checkFunStuff() == INFF_P)
-		return INF_P;
-	else if (this->_input[0] == '-' && isdigit(this->_input[1]))
-		return 0;
-	else if (isprint(this->_input[0]) && !isdigit(this->_input[0]))
-		return ISCHAR;
-
-	return 0;
-}
-
-void	ScalarConverter::convert()
-{
-	if (this->mainChecker() == INVALID_INPUT)
+	if (ScalarConverter::mainChecker(input) == INVALID_INPUT)
 		throw std::invalid_argument("Invalid input");
-	
-	this->convertChar();
-	this->convertInt();
-	this->convertFloat();
-	this->convertDouble();
+	else if (ScalarConverter::mainChecker(input) == CHAR)
+		ScalarConverter::convert(input);
+	else if (ScalarConverter::mainChecker(input) == INT)
+		ScalarConverter::convert(input);
+	else if (ScalarConverter::mainChecker(input) == FLOAT)
+		ScalarConverter::convert(input);
+	else if (ScalarConverter::mainChecker(input) == DOUBLE)
+		ScalarConverter::convert(input);
 }
 
-void	ScalarConverter::convertChar()
+void	ScalarConverter::convert(std::string input)
 {
-	int type = this->checkChar();
+	ScalarConverter::convertChar(input);
+	ScalarConverter::convertInt(input);
+	ScalarConverter::convertFloat(input);
+	ScalarConverter::convertDouble(input);
+}
+
+void	ScalarConverter::convertChar(std::string input)
+{
+	int type = ScalarConverter::checkChar(input);
 	
 	if (type == NOT_DISPLAYABLE)
 		std::cout << "char: Non displayable" << std::endl;
@@ -157,20 +105,20 @@ void	ScalarConverter::convertChar()
 	else if (type == OVERFLOW)
 		std::cout << "char: overflow" << std::endl;
 	else if (type == ISCHAR)
-		std::cout << "char: \"" 
-				  << static_cast<char>(this->_input[0]) 
-				  << "\"" 
+		std::cout << "char: \'"
+				  << static_cast<char>(input[0])
+				  << "\'"
 				  << std::endl;
 	else
-		std::cout << "char: \"" 
-				  << static_cast<char>(atoi(this->_input.c_str())) 
-				  << "\""
+		std::cout << "char: \'"
+				  << static_cast<char>(atoi(input.c_str()))
+				  << "\'"
 				  << std::endl;
 }
 
-void	ScalarConverter::convertInt()
+void	ScalarConverter::convertInt(std::string input)
 {
-	int type = this->checkInt();
+	int type = ScalarConverter::checkInt(input);
 	
 	if (type == OVERFLOW)
 		std::cout << "int: overflow" << std::endl;
@@ -178,17 +126,17 @@ void	ScalarConverter::convertInt()
 		std::cout << "int: impossible" << std::endl;
 	else if (type == ISCHAR)
 		std::cout << "int: " 
-				  << static_cast<int>(this->_input[0]) 
+				  << static_cast<int>(input[0]) 
 				  << std::endl;
 	else
 		std::cout << "int: " 
-				  << static_cast<int>(atoi(this->_input.c_str())) 
+				  << static_cast<int>(atoi(input.c_str())) 
 				  << std::endl;
 }
 
-void	ScalarConverter::convertFloat()
+void	ScalarConverter::convertFloat(std::string input)
 {
-	int type = this->checkFloat();
+	int type = ScalarConverter::checkFloat(input);
 	
 	if (type == NANF)
 		std::cout << "float: nanf" << std::endl;
@@ -198,19 +146,19 @@ void	ScalarConverter::convertFloat()
 		std::cout << "float: +inff" << std::endl;
 	else if (type == ISCHAR)
 		std::cout << "float: " 
-				  << static_cast<float>(this->_input[0])
+				  << static_cast<float>(input[0])
 				  << "f"
 				  << std::endl;
 	else
 		std::cout << "float: " 
-				  << static_cast<float>(atof(this->_input.c_str())) 
+				  << static_cast<float>(atof(input.c_str())) 
 				  << "f" 
 				  << std::endl;
 }
 
-void	ScalarConverter::convertDouble()
+void	ScalarConverter::convertDouble(std::string input)
 {
-	int type = this->checkDouble();
+	int type = ScalarConverter::checkDouble(input);
 
 	if (type == NAN)
 		std::cout << "double: nan" << std::endl;
@@ -220,27 +168,102 @@ void	ScalarConverter::convertDouble()
 		std::cout << "double: +inf" << std::endl;
 	else if (type == ISCHAR)
 		std::cout << "double: " 
-				  << static_cast<double>(this->_input[0])
+				  << static_cast<double>(input[0])
 				  << std::endl;
 	else
 		std::cout << "double: " 
-				  << static_cast<double>(atof(this->_input.c_str())) 
+				  << static_cast<double>(atof(input.c_str())) 
 				  << std::endl;
 }
 
-int		ScalarConverter::checkFunStuff()
+int		ScalarConverter::checkChar(std::string input)
 {
-	if (!strcmp(this->_input.c_str(), "nan"))
-		return NAN;
-	else if (!strcmp(this->_input.c_str(), "nanf"))
+	if (ScalarConverter::checkFunStuff(input) != 0)
+		return IMPOSSIBLE;
+	else if (input[0] == '-' && isdigit(input[1]))
+		return NOT_DISPLAYABLE;
+	else if (isdigit(input[0]))
+	{
+		if (atoi(input.c_str()) < 32)
+			return NOT_DISPLAYABLE;
+		else if (atoi(input.c_str()) > 126)
+			return OVERFLOW;	
+	}
+	else if (isprint(input[0]))
+		return ISCHAR;
+
+	return 0;
+}
+
+int 	ScalarConverter::checkInt(std::string input)
+{
+	long number = static_cast<long>(atol(input.c_str()));
+
+	if (ScalarConverter::checkFunStuff(input) != 0)
+		return IMPOSSIBLE;
+	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
+		return OVERFLOW;
+	else if (input[0] == '-' && isdigit(input[1]))
+		return 0;
+	else if (isprint(input[0]) && !isdigit(input[0]))
+		return ISCHAR;
+
+	return 0;
+}
+
+int		ScalarConverter::checkFloat(std::string input)
+{
+	long double number = static_cast<long>(atof(input.c_str()));
+
+	if (ScalarConverter::checkFunStuff(input) == NANF || ScalarConverter::checkFunStuff(input) == NANF)
 		return NANF;
-	else if (!strcmp(this->_input.c_str(), "-inf"))
-		return INF_N;
-	else if (!strcmp(this->_input.c_str(), "+inf"))
-		return INF_P;
-	else if (!strcmp(this->_input.c_str(), "-inff"))
+	else if (ScalarConverter::checkFunStuff(input) == INF_N || ScalarConverter::checkFunStuff(input) == INFF_N)
 		return INFF_N;
-	else if (!strcmp(this->_input.c_str(), "+inff"))
+	else if (ScalarConverter::checkFunStuff(input) == INF_P || ScalarConverter::checkFunStuff(input) == INFF_P)
+		return INFF_P;
+	else if (input[0] == '-' && isdigit(input[1]))
+		return 0;
+	else if (isprint(input[0]) && !isdigit(input[0]))
+		return ISCHAR;
+	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
+		return OVERFLOW;
+
+	return 0;
+}
+
+int		ScalarConverter::checkDouble(std::string input)
+{
+	long double number = static_cast<long>(atof(input.c_str()));
+	
+	if (ScalarConverter::checkFunStuff(input) == NANF || ScalarConverter::checkFunStuff(input) == NANF)
+		return NAN;
+	else if (ScalarConverter::checkFunStuff(input) == INF_N || ScalarConverter::checkFunStuff(input) == INFF_N)
+		return INF_N;
+	else if (ScalarConverter::checkFunStuff(input) == INF_P || ScalarConverter::checkFunStuff(input) == INFF_P)
+		return INF_P;
+	else if (input[0] == '-' && isdigit(input[1]))
+		return 0;
+	else if (isprint(input[0]) && !isdigit(input[0]))
+		return ISCHAR;
+	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
+		return OVERFLOW;
+
+	return 0;
+}
+
+int		ScalarConverter::checkFunStuff(std::string input)
+{
+	if (!strcmp(input.c_str(), "nan"))
+		return NAN;
+	else if (!strcmp(input.c_str(), "nanf"))
+		return NANF;
+	else if (!strcmp(input.c_str(), "-inf"))
+		return INF_N;
+	else if (!strcmp(input.c_str(), "+inf"))
+		return INF_P;
+	else if (!strcmp(input.c_str(), "-inff"))
+		return INFF_N;
+	else if (!strcmp(input.c_str(), "+inff"))
 		return INFF_P;
 	else
 		return 0;

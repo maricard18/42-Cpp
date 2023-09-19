@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 22:20:51 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/18 19:19:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:00:37 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,32 @@
 class ScalarConverter
 {
 	private:
-		std::string		_input;
-
-	public:
 		//! Constructors and destructor
 		ScalarConverter();
-		ScalarConverter(std::string input);
 		ScalarConverter(const ScalarConverter& copy);
 		~ScalarConverter();
 
 		//! Operator overloading
 		ScalarConverter& operator=(const ScalarConverter& other);
 
+	public:
+		//! Functions
+		static void		convert(std::string input);
+		static void		checkType(std::string input);
+		static int		mainChecker(std::string input);
+		
 		//!  Chekers
-		int		mainChecker();
-		int		checkChar();
-		int		checkInt();
-		int		checkFloat();
-		int		checkDouble();
-		int 	checkFunStuff();
+		static int		checkChar(std::string input);
+		static int		checkInt(std::string input);
+		static int		checkFloat(std::string input);
+		static int		checkDouble(std::string input);
+		static int 		checkFunStuff(std::string input);
 
 		//! Converter
-		void	convert();
-		void	convertChar();
-		void	convertInt();
-		void	convertFloat();
-		void	convertDouble();
+		static void		convertChar(std::string input);
+		static void		convertInt(std::string input);
+		static void		convertFloat(std::string input);
+		static void		convertDouble(std::string input);
 };
 
 #endif

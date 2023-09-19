@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 09:22:00 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 09:43:15 by maricard         ###   ########.fr       */
+/*   Created: 2023/09/19 11:04:46 by maricard          #+#    #+#             */
+/*   Updated: 2023/09/19 15:50:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef A_HPP
+# define A_HPP
 
 # include <iostream>
+# include "Base.hpp"
 
-typedef struct	s_Data
+class A : public Base
 {
-	int 	i;
-}				Data;
+	
+};
 
 #endif

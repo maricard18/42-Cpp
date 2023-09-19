@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/19 09:32:09 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/19 16:08:38 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ WHI	= \033[1;37m
 CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
-NAME	= serialization
+NAME	= identify
 CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC		= main.cpp Serialize.cpp
+SRC		= main.cpp Base.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)
