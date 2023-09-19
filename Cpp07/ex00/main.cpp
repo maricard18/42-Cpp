@@ -6,11 +6,11 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:37:49 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 20:02:19 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:06:39 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Whatever.hpp"
+#include "whatever.hpp"
 
 int main( void )
 {
