@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:03:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 18:55:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:19:27 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,8 @@ int		ScalarConverter::checkChar(std::string input)
 		else if (atoi(input.c_str()) > 126)
 			return OVERFLOW;	
 	}
+	else if (input[0] == '.' && isdigit(input[1]))
+		return NOT_DISPLAYABLE;
 	else if (isprint(input[0]))
 		return ISCHAR;
 
@@ -205,6 +207,8 @@ int 	ScalarConverter::checkInt(std::string input)
 		return OVERFLOW;
 	else if (input[0] == '-' && isdigit(input[1]))
 		return 0;
+	else if (input[0] == '.' && isdigit(input[1]))
+		return IMPOSSIBLE;
 	else if (isprint(input[0]) && !isdigit(input[0]))
 		return ISCHAR;
 
@@ -221,6 +225,8 @@ int		ScalarConverter::checkFloat(std::string input)
 		return INFF_P;
 	else if (input[0] == '-' && isdigit(input[1]))
 		return 0;
+	else if (input[0] == '.' && isdigit(input[1]))
+		return 0;
 	else if (isprint(input[0]) && !isdigit(input[0]))
 		return ISCHAR;
 
@@ -236,6 +242,8 @@ int		ScalarConverter::checkDouble(std::string input)
 	else if (ScalarConverter::checkFunStuff(input) == INF_P || ScalarConverter::checkFunStuff(input) == INFF_P)
 		return INF_P;
 	else if (input[0] == '-' && isdigit(input[1]))
+		return 0;
+	else if (input[0] == '.' && isdigit(input[1]))
 		return 0;
 	else if (isprint(input[0]) && !isdigit(input[0]))
 		return ISCHAR;
