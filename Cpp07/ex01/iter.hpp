@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:06:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 20:23:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:24:07 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void 	swap(T &x, T &y)
 }
 
 template <typename T, typename F>
-void	iter(T& array, size_t len, U function)
+void	iter(T& array, size_t len, F function)
 {
 	
 }
