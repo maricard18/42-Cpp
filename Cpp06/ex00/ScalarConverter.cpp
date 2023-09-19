@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 11:03:41 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 17:49:26 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:55:07 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,9 +213,7 @@ int 	ScalarConverter::checkInt(std::string input)
 
 int		ScalarConverter::checkFloat(std::string input)
 {
-	long double number = static_cast<long>(atof(input.c_str()));
-
-	if (ScalarConverter::checkFunStuff(input) == NANF || ScalarConverter::checkFunStuff(input) == NANF)
+	if (ScalarConverter::checkFunStuff(input) == NAN || ScalarConverter::checkFunStuff(input) == NANF)
 		return NANF;
 	else if (ScalarConverter::checkFunStuff(input) == INF_N || ScalarConverter::checkFunStuff(input) == INFF_N)
 		return INFF_N;
@@ -225,17 +223,13 @@ int		ScalarConverter::checkFloat(std::string input)
 		return 0;
 	else if (isprint(input[0]) && !isdigit(input[0]))
 		return ISCHAR;
-	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
-		return OVERFLOW;
 
 	return 0;
 }
 
 int		ScalarConverter::checkDouble(std::string input)
 {
-	long double number = static_cast<long>(atof(input.c_str()));
-	
-	if (ScalarConverter::checkFunStuff(input) == NANF || ScalarConverter::checkFunStuff(input) == NANF)
+	if (ScalarConverter::checkFunStuff(input) == NAN || ScalarConverter::checkFunStuff(input) == NANF)
 		return NAN;
 	else if (ScalarConverter::checkFunStuff(input) == INF_N || ScalarConverter::checkFunStuff(input) == INFF_N)
 		return INF_N;
@@ -245,8 +239,6 @@ int		ScalarConverter::checkDouble(std::string input)
 		return 0;
 	else if (isprint(input[0]) && !isdigit(input[0]))
 		return ISCHAR;
-	else if (std::numeric_limits<int>::max() < number || std::numeric_limits<int>::min() > number)
-		return OVERFLOW;
 
 	return 0;
 }
