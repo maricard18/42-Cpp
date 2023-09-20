@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:06:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 20:24:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:48:41 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 # define RESET "\033[0m"
 
 template <typename T>
-void 	swap(T &x, T &y)
+void 	print(T x)
 {
-    T temp;
-
-	temp = x;
-	x = y;
-	y = temp;
+	std::cout << GREEN << x << " ";
 }
 
-template <typename T, typename F>
-void	iter(T& array, size_t len, F function)
+template <typename T>
+void	iter(T* array, size_t len, void (*func)(T&))
 {
-	
+	size_t	i = -1;
+
+	while (++i < len)
+		func(array[i]);
+	std::cout << RESET << std::endl;
 }
 
 #endif
