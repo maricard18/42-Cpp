@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:11:00 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 18:31:46 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:53:42 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,23 @@ void	 main_tests()
 
 void	numbers_tests()
 {
-	Span sp = Span(10001);
+	Span sp = Span(100000);
 	
-	sp.addManyNumbers(0, 10000);
-
-	sp.printVec();
-	
-	std::cout << YELLOW << "Shortest Span: " << WHITE;
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << YELLOW << "Longest Span: " << WHITE;
-	std::cout << sp.longestSpan() << RESET << std::endl << std::endl;
+	try
+	{
+		sp.addManyNumbers(-49999, 50000);
+		
+		sp.printVec();
+		
+		std::cout << YELLOW << "Shortest Span: " << WHITE;
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << YELLOW << "Longest Span: " << WHITE;
+		std::cout << sp.longestSpan() << RESET << std::endl << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
 }
 
 int main()
@@ -84,14 +91,6 @@ int main()
 			  << std::endl
 			  << std::endl; 
 	numbers_tests();
-
-	//std::cout << std::endl 
-	//		  << YELLOW
-	//		  << "THROW TESTS" 
-	//		  << RESET
-	//		  << std::endl 
-	//		  << std::endl;  
-	//throw_tests();
 
 	std::cout << std::endl;
 	return 0;
