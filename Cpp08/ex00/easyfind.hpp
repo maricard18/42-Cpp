@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:23:40 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 12:19:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:39:29 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@
 template <typename T>
 void	easyfind(const T& container, int value)
 {
-	for (int i = 0; container[i]; i++)
-	{
-		if (container[i] == value)
-		{
-			std::cout << WHITE 
-					  << "Ocurrence was found"
-					  << RESET
-					  << std::endl;
-			return ;
-		}
-	}
+	typename T::const_iterator iter;
 	
-	throw std::invalid_argument("ocurrence not found");
+	iter = find(container.begin(), container.end(), value);
+	
+	if (iter != container.end())
+	{
+		std::cout << WHITE 
+				  << "Ocurrence was found"
+				  << RESET
+				  << std::endl;
+		return ;
+	}
+	else
+		throw std::invalid_argument("ocurrence not found");
 }
 
 #endif
