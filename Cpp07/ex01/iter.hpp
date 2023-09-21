@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:06:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/20 19:18:18 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:34:13 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 template <typename T>
 void 	print(T x)
 {
-	std::cout << GREEN << x << " ";
+	std::cout << GREEN << x << " " << RESET;
 }
 
 template <typename T>
@@ -32,7 +32,6 @@ void	iter(T* array, size_t len, void (*func)(T&))
 
 	while (++i < len)
 		func(array[i]);
-	std::cout << RESET << std::endl;
 }
 
 #endif
