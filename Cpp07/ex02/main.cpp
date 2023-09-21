@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:12:06 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/20 20:42:10 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:44:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	value_tests()
 
 	std::cout << RED << "VALUE AT CONSTRUCTION" << RESET << std::endl;
 	std::cout << "array: ";
-	::iter(array.getArray(), array.size(), print);
+	iter(array.getArray(), array.size(), print);
 	
 	srand(time(0));
 	for (int i = 0; i < VALUE; i++)
@@ -31,7 +31,7 @@ void	value_tests()
 	
 	std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 	std::cout << "array: ";
-	::iter(array.getArray(), array.size(), print);
+	iter(array.getArray(), array.size(), print);
 	
 	try
 	{
@@ -39,18 +39,18 @@ void	value_tests()
 		
 		std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 		std::cout << "array: ";
-		::iter(array.getArray(), array.size(), print);
+		iter(array.getArray(), array.size(), print);
 
 		std::cout << RED << "VALUE AT POSITION [0]" << RESET << std::endl;
 		std::cout << "array: ";
-		::iter(array.getArray(), 1, print);
+		iter(array.getArray(), 1, print);
 		
 		// access out of range
 		array[VALUE] = 42;
 		
 		std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 		std::cout << "array: ";
-		::iter(array.getArray(), array.size(), print);
+		iter(array.getArray(), array.size(), print);
 	}
 	catch (std::exception &e)
 	{
@@ -65,7 +65,7 @@ void	string_tests()
 
 	std::cout << RED << "VALUE AT CONSTRUCTION" << RESET << std::endl;
 	std::cout << "array: ";
-	::iter(array.getArray(), array.size(), print);
+	iter(array.getArray(), array.size(), print);
 	
 	for (int i = 0; i < VALUE; i++)
     {
@@ -75,7 +75,7 @@ void	string_tests()
 	
 	std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 	std::cout << "array: ";
-	::iter(array.getArray(), array.size(), print);
+	iter(array.getArray(), array.size(), print);
 	
 	try
 	{
@@ -83,13 +83,13 @@ void	string_tests()
 		
 		std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 		std::cout << "array: ";
-		::iter(array.getArray(), array.size(), print);
+		iter(array.getArray(), array.size(), print);
 		
 		array[VALUE] = "Bye";
 		
 		std::cout << RED << "VALUE OF ARRAY" << RESET << std::endl;
 		std::cout << "array: ";
-		::iter(array.getArray(), array.size(), print);
+		iter(array.getArray(), array.size(), print);
 	}
 	catch (std::exception &e)
 	{

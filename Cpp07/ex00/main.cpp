@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:37:49 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/19 20:06:39 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:43:20 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main( void )
 	std::cout << "a = " << GREEN << a << RESET << std::endl;
 	std::cout << "b = " << GREEN << b << RESET  << std::endl;
 	
-	::swap( a, b );
+	swap( a, b );
 	std::cout << RED "After swap" << RESET << std::endl;
 	std::cout << "a = " << GREEN << a << RESET << std::endl;
 	std::cout << "b = " << GREEN << b << RESET  << std::endl;
@@ -39,7 +39,7 @@ int main( void )
 	std::cout << "c = " << GREEN << c << RESET << std::endl;
 	std::cout << "d = " << GREEN << d << RESET  << std::endl;
 	
-	::swap(c, d);
+	swap(c, d);
 	std::cout << RED "After swap" << RESET << std::endl;
 	std::cout << "c = " << GREEN << c << RESET << std::endl;
 	std::cout << "d = " << GREEN << d << RESET  << std::endl;
