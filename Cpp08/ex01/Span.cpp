@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:48:28 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 17:46:18 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:48:16 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		Span::shortestSpan()
 	sort(tmp_vec.begin(), tmp_vec.end());
 	
 	if (_vec.size() < 2)
-		throw std::out_of_range("Span can't take more numbers");
+		throw std::out_of_range("Span doens't have enough numbers");
 
 	res = tmp_vec[1] - tmp_vec[0];
 
@@ -76,7 +76,7 @@ int		Span::longestSpan()
 	std::vector<int>::iterator	max;
 
 	if (_vec.size() < 2)
-		throw std::out_of_range("Span can't take more numbers");
+		throw std::out_of_range("Span doesn't have enough numbers");
 
 	min = std::min_element(_vec.begin(), _vec.end());
 	max = std::max_element(_vec.begin(), _vec.end());
