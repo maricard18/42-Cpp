@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:43:59 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 12:53:28 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:15:17 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,20 @@
 
 # include <iostream>
 # include <algorithm>
+# include <cmath>
+# include <vector>
+
+# define RED 	"\033[1;31m"
+# define GREEN 	"\033[1;32m"
+# define YELLOW "\033[1;33m"
+# define WHITE 	"\033[1;37m"
+# define RESET 	"\033[0m"\
 
 class Span
 {
 	private:
-		int*	_array;
 		unsigned int	_N;
+		std::vector<int>	_vec;
 
 	public:
 		//! Constructors and destructor
@@ -33,9 +41,11 @@ class Span
 		Span& operator=(const Span& other);
 
 		//! Functions
-		void	addNumber();
+		void	addNumber(int x);
 		int		shortestSpan();
 		int		longestSpan();
+
+		void	printVec();
 };
 
 #endif
