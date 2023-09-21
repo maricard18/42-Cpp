@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:48:28 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 17:48:16 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:31:32 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,28 @@ int		Span::longestSpan()
 	return (*max - *min);
 }
 
+void	Span::addManyNumbers(int lowerNb, int higherNb)
+{
+	if (lowerNb > higherNb)
+		throw std::out_of_range("First Argument can't be higher than the second!");
+
+	if (_vec.size() + (higherNb - lowerNb + 1) > _N)
+		throw std::out_of_range("To many numbers to add");
+	
+	unsigned long i = _vec.size();
+	
+	for (; i < _N; i++)
+		_vec.push_back(lowerNb++);
+}
+
 void	Span::printVec()
 {
 	std::vector<int>::iterator	iter;
 	
 	std::cout << RED << "Vector: " << RESET;
+			  
 	for (iter = _vec.begin(); iter != _vec.end(); iter++)
 		std::cout << WHITE << *iter << " " << RESET;
+
 	std::cout << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:43:59 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 17:15:17 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:54:51 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ class Span
 
 		//! Functions
 		void	addNumber(int x);
+		void	addManyNumbers(int lowerNb, int higherNb);
 		int		shortestSpan();
 		int		longestSpan();
 
+		//! Helper
 		void	printVec();
 };
 
