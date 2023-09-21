@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:23:40 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 11:36:16 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:19:04 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <algorithm>
 
-# define RED "\033[1;31m"
-# define GREEN "\033[1;32m"
+# define RED 	"\033[1;31m"
+# define GREEN 	"\033[1;32m"
 # define YELLOW "\033[1;33m"
-# define WHITE "\033[1;37m"
-# define RESET "\033[0m"\
+# define WHITE 	"\033[1;37m"
+# define RESET 	"\033[0m"\
 
 template <typename T>
-void	easyfind(T* container, int value)
+void	easyfind(const T& container, int value)
 {
 	for (int i = 0; container[i]; i++)
 	{
-		if (containner[i] == value)
+		if (container[i] == value)
+		{
 			std::cout << WHITE 
-					  << "Ocurrence \'"
-					  << GREEN
-					  << value
-					  << WHITE
-					  << "\' was found"
+					  << "Ocurrence was found"
+					  << RESET
 					  << std::endl;
-		return ;
+			return ;
+		}
 	}
 	
-	throw std::invalid_argument("Ocurrence not found");
+	throw std::invalid_argument("ocurrence not found");
 }
 
 #endif

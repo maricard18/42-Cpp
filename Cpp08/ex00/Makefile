@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/21 11:23:28 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/21 12:04:05 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CC 		= c++
 RM 		= rm -f
 AR 		= ar -rcs
 NAME	= easyfind
-CFLAGS	= -g -Wall -Wextra -Werror -pedantic -std=c++98
+CFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
 SRC		= main.cpp
 TARGET 	= $(SRC:.cpp=.o)
