@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:48:28 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 18:31:32 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/22 09:41:54 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	Span::addManyNumbers(int lowerNb, int higherNb)
 	
 	unsigned long i = _vec.size();
 	
-	for (; i < _N; i++)
+	for (; i < _N && lowerNb <= higherNb; i++)
 		_vec.push_back(lowerNb++);
 }
 
