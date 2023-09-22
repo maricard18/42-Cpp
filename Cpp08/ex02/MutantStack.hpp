@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 09:57:56 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/22 15:13:34 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:19:22 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,22 @@ class MutantStack : public std::stack<T>
 {
 	public:
 		//! Constructors and destructor
-		MutantStack() {};
-		MutantStack(const MutantStack& copy){ *this = copy; };
-		~MutantStack() {};
+		MutantStack();
+		MutantStack(const MutantStack& copy);
+		~MutantStack();
 
 		//! Operator overloading
-		MutantStack& operator=(const MutantStack& other)
-		{
-			if (*this == other)
-				return *this;
-			*this = std::stack<T>::operator=(other);
-			return *this;
-		}
+		MutantStack& operator=(const MutantStack& other);
 
 		//! Iterators
 		typedef	typename	C::iterator		iterator;
 
 		//! Functions
-		iterator	begin(){ return	this->c.begin(); };
-		iterator	end(){ return this->c.end(); };
-		iterator	rbegin(){ return this->c.rbegin(); };
-		iterator	rend(){ return this->c.rend(); };
-
-		void	print();
+		iterator	begin();
+		iterator	end();
+		void		print();
 };
 
-template <typename T, typename C>
-void	MutantStack<T, C>::print()
-{
-	iterator	it = this->begin();
-	iterator	ite = this->end();
-
-	std::cout << RED << "stack: " << WHITE;
-	while (it != ite)
-	{
-		std::cout << *it << " ";
-		++it;
-	}
-	std::cout << RESET << std::endl;
-}
+#include "MutanStack.tpp"
 
 #endif

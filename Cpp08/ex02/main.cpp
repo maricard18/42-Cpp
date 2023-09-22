@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:53:26 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/22 15:14:54 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:16:14 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	mstack.push(0);
 	mstack.print();
 
-	std::stack<int> s(mstack);
+	MutantStack<int> tmp(mstack);
 
 	std::cout << std::endl << YELLOW "copied stack" << std::endl;
 	mstack.print();
