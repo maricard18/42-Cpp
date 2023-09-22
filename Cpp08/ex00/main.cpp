@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:36:30 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 12:18:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:21:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int main()
 
 	try
 	{
-		std::cout << YELLOW << "Searching in vec" << RESET << std::endl;
+		std::cout << YELLOW << "Searching in vec..." << RESET << std::endl;
 		easyfind(vec, 3);
 		std::cout << std::endl;
 
-		std::cout << YELLOW << "Searching in deq" << RESET << std::endl;
+		std::cout << YELLOW << "Searching in deq..." << RESET << std::endl;
 		easyfind(deq, 3);
 	}
 	catch(std::exception &e)
