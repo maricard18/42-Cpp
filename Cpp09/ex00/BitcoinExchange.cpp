@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/25 16:57:47 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:43:07 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void	BitcoinExchange::readDataBase()
     file.open("data.csv");
 	if (!file.is_open())
 		throw std::runtime_error("Failed to open file.");
+	getline(file, line);
 	while (getline(file, line))
 	{
 		date = line.substr(0, line.find(','));
 		value = line.substr(line.find(',') + 1, line.length());
-		this->_data[date] = atof(value.c_str());
+		this->_data[date] = static_cast<float>(std::atof(value.c_str()));
 	}
 }
 

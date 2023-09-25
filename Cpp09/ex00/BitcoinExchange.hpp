@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:30:27 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/25 16:18:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:27:18 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <stdlib.h>
 # include <fstream>
+# include <string>
+# include <iomanip>
 # include <map>
 
 # define RED 	"\033[1;31m"
