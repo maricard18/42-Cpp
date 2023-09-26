@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:16:56 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/26 15:54:53 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/26 23:31:29 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "Error: usage.";
-		std::cerr << "Program needs two arguments";
+		std::cerr << "Error: usage" << std::endl;
+		std::cerr << "./btc input_file" << std::endl;
 		return EXIT_FAILURE;
 	}
 	
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << RED << "Error: " << e.what();
+		std::cerr << RED << "Error: " << e.what() << std::endl;
 	}
 	return EXIT_SUCCESS;
 }

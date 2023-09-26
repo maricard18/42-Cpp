@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/26 23:02:31 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/26 23:42:03 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	BitcoinExchange::readDataBase()
 
     file.open("data.csv");
 	if (!file.is_open())
-		throw std::runtime_error("Failed to open database.");
+		throw std::runtime_error("failed to open database");
+	
 	getline(file, line);
 	while (getline(file, line))
 	{
@@ -57,12 +58,11 @@ void	BitcoinExchange::readInputFile(char *inputFile)
 	std::ifstream	file;
 	std::string		line;
 	std::string 	final;
-	std::string 	date;
-	std::string		value;
 
     file.open(inputFile);
 	if (!file.is_open())
-		throw std::runtime_error("Failed to open file.");
+		throw std::runtime_error("failed to open file");
+	
 	getline(file, line);
 	while (getline(file, line))
 	{
@@ -111,9 +111,8 @@ bool	BitcoinExchange::checkDate(std::string date)
 	char				hifen;
 	
 	if (!(stream >> dt.tm_year >> hifen >> dt.tm_mon >> hifen >> dt.tm_mday))
-		return false;
-		
-	if (std::to_string(dt.tm_year).length() != 4)
+		return false;	
+	else if (std::to_string(dt.tm_year).length() != 4)
 		return false;
 	else if (std::to_string(dt.tm_mon).length() > 2 || dt.tm_mon > 12)
 		return false;
