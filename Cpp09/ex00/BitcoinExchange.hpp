@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:30:27 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/25 19:27:18 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/26 20:13:50 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <sstream>
 # include <stdlib.h>
 # include <fstream>
 # include <string>
 # include <iomanip>
+# include <climits>
+# include <ctime>
 # include <map>
 
 # define RED 	"\033[1;31m"
@@ -41,11 +44,15 @@ class BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 
 		//! Functions
-		void	readDataBase();
-		void	readInputFile(char *file);
+		void		readDataBase();
+		void		readInputFile(char *inputFile);
+		bool		checkDate(std::string date);
+		std::string checkLine(std::string line);
+		std::string	getBitcoinValue(std::string date, long int value);
 
 		//! Helper
 		void	print();
+		bool 	isFloat(const std::string& str);
 };
 
 #endif

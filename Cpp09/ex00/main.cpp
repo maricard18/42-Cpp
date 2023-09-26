@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:16:56 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/25 16:17:26 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/26 15:54:53 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	bitcoin_exchange(char *input)
 
 	btc.readDataBase();
 	btc.readInputFile(input);
-	btc.print();
+	//btc.print();
 }
 
 int main(int argc, char **argv)
