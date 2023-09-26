@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/26 20:14:10 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/26 23:02:31 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ std::string	BitcoinExchange::checkLine(std::string line)
 	else if (number < 0)
 		return "Error: not a positive number => \'" + value + "\'";
 
-	return "OK";
+	return getBitcoinValue(date, number);
 }
 
 bool	BitcoinExchange::checkDate(std::string date)
@@ -112,6 +112,13 @@ bool	BitcoinExchange::checkDate(std::string date)
 	
 	if (!(stream >> dt.tm_year >> hifen >> dt.tm_mon >> hifen >> dt.tm_mday))
 		return false;
+		
+	if (std::to_string(dt.tm_year).length() != 4)
+		return false;
+	else if (std::to_string(dt.tm_mon).length() > 2 || dt.tm_mon > 12)
+		return false;
+	else if (std::to_string(dt.tm_mday).length() > 2)
+		return false;
 
 	dt.tm_mon -= 1;
 	dt.tm_year -= 1900;
@@ -120,9 +127,38 @@ bool	BitcoinExchange::checkDate(std::string date)
 
 	if (normalized.tm_year != dt.tm_year \
 			|| normalized.tm_mon != dt.tm_mon \
-			|| normalized.tm_mday != dt.tm_mday)
+				|| normalized.tm_mday != dt.tm_mday)
 		return false;
 	return true;
+}
+
+std::string	BitcoinExchange::getBitcoinValue(std::string date, long int number)
+{
+	std::map<std::string, float>::iterator	begin = this->_data.begin();
+	std::map<std::string, float>::iterator	end = this->_data.end();
+	
+	while (begin != end)
+	{
+		if (date == begin->first)
+			return date + " => " + std::to_string(begin->second * number);
+		begin++;
+	}
+	
+	begin = this->_data.begin();
+	
+	while (begin != end)
+	{
+		if (begin->first > date)
+		{
+			begin--;
+			return date + " => " + std::to_string(begin->second * number);
+		}
+		begin++;
+	}
+
+	begin--;
+
+	return date + " => " + std::to_string(begin->second * number);
 }
 
 void	BitcoinExchange::print()
