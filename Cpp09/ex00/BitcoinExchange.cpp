@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/26 23:42:03 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:50:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,25 @@ std::string	BitcoinExchange::checkLine(std::string line)
 bool	BitcoinExchange::checkDate(std::string date)
 {
 	std::stringstream	stream(date);
+	std::stringstream	year;
+	std::stringstream	month;
+	std::stringstream	day;
 	struct tm 			dt = {};
 	struct tm 			normalized = {};
 	char				hifen;
 	
 	if (!(stream >> dt.tm_year >> hifen >> dt.tm_mon >> hifen >> dt.tm_mday))
-		return false;	
-	else if (std::to_string(dt.tm_year).length() != 4)
 		return false;
-	else if (std::to_string(dt.tm_mon).length() > 2 || dt.tm_mon > 12)
+	
+	year << dt.tm_year;
+	month << dt.tm_mon;
+	day << dt.tm_mday;
+	
+	if ((year.str()).length() != 4)
 		return false;
-	else if (std::to_string(dt.tm_mday).length() > 2)
+	else if ((month.str()).length() > 2 || dt.tm_mon > 12)
+		return false;
+	else if ((day.str()).length() > 2)
 		return false;
 
 	dt.tm_mon -= 1;
@@ -135,29 +143,37 @@ std::string	BitcoinExchange::getBitcoinValue(std::string date, long int number)
 {
 	std::map<std::string, float>::iterator	begin = this->_data.begin();
 	std::map<std::string, float>::iterator	end = this->_data.end();
+	std::stringstream	stream;
 	
 	while (begin != end)
 	{
 		if (date == begin->first)
-			return date + " => " + std::to_string(begin->second * number);
+		{
+			stream << begin->second * number;
+			return date + " => " + stream.str();
+		}
 		begin++;
 	}
 	
 	begin = this->_data.begin();
+	stream.clear();
 	
 	while (begin != end)
 	{
 		if (begin->first > date)
 		{
 			begin--;
-			return date + " => " + std::to_string(begin->second * number);
+			stream << begin->second * number;
+			return date + " => " + stream.str();
 		}
 		begin++;
 	}
 
 	begin--;
+	stream.clear();
+	stream << begin->second * number;
 
-	return date + " => " + std::to_string(begin->second * number);
+	return date + " => " + stream.str();
 }
 
 void	BitcoinExchange::print()
