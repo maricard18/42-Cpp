@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 21:01:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 22:52:58 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sstream>
 # include <vector>
 # include <deque>
+# include <math.h>
 
 # define RED 	"\033[1;31m"
 # define GREEN 	"\033[1;32m"
@@ -53,14 +54,15 @@ class PmergeMe
 		void	sortDeqMainChain();
 		void	vecBinarySearch(int number);
 		void	deqBinarySearch(int number);
-		void	insertJacobSequence();
-		void	buildJacobSequence();
+		void	insert();
+	
+		std::vector<int>	buildVecJacobSequence();
+		std::deque<int>		buildDeqJacobSequence();
 
 		//! Helpers
 		void	printVec(int id);
 		void	printDeq(int id);
 		void	displayResults();
-
 };
 
 #endif

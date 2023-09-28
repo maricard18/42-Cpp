@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:42:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 17:03:23 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 23:01:03 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	mergeInsertionAlgorithm(int argc, char **argv)
 	stream.seekg(0, std::ios::beg);
 	pmerge.createDeqPairs(stream);
 
+	std::cout << WHITE "Before sorting" << std::endl;
 	pmerge.printVec(1);
 	pmerge.printVec(2);
 	pmerge.printDeq(1);
@@ -33,10 +34,22 @@ void	mergeInsertionAlgorithm(int argc, char **argv)
 	pmerge.sortVecPairs();
 	pmerge.sortDeqPairs();
 
+	std::cout << WHITE "After sorting" << std::endl;
 	pmerge.printVec(1);
 	pmerge.printVec(2);
 	pmerge.printDeq(1);
 	pmerge.printDeq(2);
+
+	pmerge.sortVecMainChain();
+	pmerge.sortDeqMainChain();
+
+	std::cout << WHITE "After merging" << std::endl;
+	pmerge.printVec(1);
+	pmerge.printVec(2);
+	pmerge.printDeq(1);
+	pmerge.printDeq(2);
+
+	pmerge.buildVecJacobSequence();
 }
 
 int main (int argc, char **argv) 

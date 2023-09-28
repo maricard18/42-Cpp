@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 21:03:15 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 23:26:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,29 +114,37 @@ void	PmergeMe::sortDeqPairs()
 
 void	PmergeMe::sortVecMainChain()
 {
-	std::vector<int>::iterator	it = _mainVec.begin();
+	std::vector<int>::iterator	mainIt = _mainVec.begin();
+	std::vector<int>::iterator	pendIt = _pendVec.begin();
 	
-	while (it + 1 != _mainVec.end())
+	while (mainIt + 1 != _mainVec.end())
 	{
-		if (*it > *(it + 1))
+		if (*mainIt > *(mainIt + 1))
 		{
-			std::iter_swap(it, it + 1);
+			std::iter_swap(mainIt, mainIt + 1);
+			std::iter_swap(pendIt, pendIt + 1);
 			sortVecMainChain();
 		}
+		mainIt++;
+		pendIt++;
 	}
 }
 
 void	PmergeMe::sortDeqMainChain()
 {
-	std::deque<int>::iterator	it = _mainDeq.begin();
+	std::deque<int>::iterator	mainIt = _mainDeq.begin();
+	std::deque<int>::iterator	pendIt = _pendDeq.begin();
 	
-	while (it + 1 != _mainDeq.end())
+	while (mainIt + 1 != _mainDeq.end())
 	{
-		if (*it > *(it + 1))
+		if (*mainIt > *(mainIt + 1))
 		{
-			std::iter_swap(it, it + 1);
+			std::iter_swap(mainIt, mainIt + 1);
+			std::iter_swap(pendIt, pendIt + 1);
 			sortDeqMainChain();
 		}
+		mainIt++;
+		pendIt++;
 	}
 }
 
@@ -144,38 +152,80 @@ void PmergeMe::vecBinarySearch(int number)
 {
 	int start = 0;
 	int	middle = 0;
-	int end = _mainVec.size() - 1;;
+	int end = _mainVec.size() - 1;
 
 	while (start <= end)
 	{
-		middle = start + (end - start) / 2;
+		middle = (start + (end - start)) / 2;
 		if (number > _mainVec[middle])
 			start = middle + 1;
-		else if (number < _mainVec[middle])	
+		else if (number < _mainVec[middle])
 			end = middle - 1;
+		else
+		{
+			_mainVec.insert(_mainVec.begin() + middle, number);
+			return ;
+		}	
 	}
 
-	_mainVec.insert(_mainVec.begin() + start, number);
+	_mainVec.insert(_mainVec.begin() + end, number);
 }
 
 void PmergeMe::deqBinarySearch(int number)
 {
-	int start;
-	int	middle;
-	int end;
+	int start = 0;
+	int	middle = 0;
+	int end = _mainDeq.size() - 1;
 
-	start = 0;
-	end = _mainDeq.size() - 1;
 	while (start <= end)
 	{
-		middle = start + (end - start) / 2;
+		middle = (start + (end - start)) / 2;
 		if (number > _mainDeq[middle])
 			start = middle + 1;
-		else if (number < _mainDeq[middle])	
+		else if (number < _mainDeq[middle])
 			end = middle - 1;
+		else
+		{
+			_mainDeq.insert(_mainDeq.begin() + middle, number);
+			return ;
+		}	
 	}
 
-	_mainDeq.insert(_mainDeq.begin() + start, number);
+	_mainDeq.insert(_mainDeq.begin() + end, number);
+}
+
+std::vector<int>	PmergeMe::buildVecJacobSequence()
+{
+	std::vector<int>	jacob;
+	std::vector<int>	index;
+	int	size = _pendVec.size();
+	int num = 0;
+	int index;
+
+	jacob.push_back(0);
+	jacob.push_back(1);
+	for (; num <= size;)
+	{
+		num = jacob.back() + (jacob[jacob.size() - 2] * 2);
+		jacob.push_back(num);
+	}
+
+	index.push_back(1);
+	for (int i = 3; i < jacob.size() - 1; i++)
+	{
+		index = i;
+		num = jacob[i] - jacob[i - 1];
+		for (int j = num; j > 0; j--)
+			index.push_back(jacob[index--]);
+		
+	}
+
+	//print jacob
+	 for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
+	 	std::cout << *it << " ";
+	 std::cout << std::endl;
+
+	return index;
 }
 
 void	PmergeMe::printVec(int id)
