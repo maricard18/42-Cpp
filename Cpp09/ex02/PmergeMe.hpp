@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 16:34:04 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 21:01:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class PmergeMe
 	private:
 		std::vector<int>	_mainVec;
 		std::vector<int>	_pendVec;
+
+	private:
 		std::deque<int>		_mainDeq;
 		std::deque<int>		_pendDeq;
 
@@ -43,13 +45,21 @@ class PmergeMe
 
 		//! Functions
 		bool	validateArguments(int argc, char **argv, std::stringstream& stream);
-		void	createPairs(std::stringstream& stream);
-		void	sortPairs();
+		void	createVecPairs(std::stringstream& stream);
+		void	createDeqPairs(std::stringstream& stream);
+		void	sortVecPairs();
+		void	sortDeqPairs();
+		void	sortVecMainChain();
+		void	sortDeqMainChain();
+		void	vecBinarySearch(int number);
+		void	deqBinarySearch(int number);
+		void	insertJacobSequence();
 		void	buildJacobSequence();
 
 		//! Helpers
 		void	printVec(int id);
 		void	printDeq(int id);
+		void	displayResults();
 
 };
 

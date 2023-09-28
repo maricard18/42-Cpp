@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:42:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 16:14:00 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:03:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,23 @@ void	mergeInsertionAlgorithm(int argc, char **argv)
 	if (!pmerge.validateArguments(argc, argv, stream))
 		throw std::runtime_error("invalid arguments");
 	
-	pmerge.createPairs(stream);
+	pmerge.createVecPairs(stream);
+	stream.clear();
+	stream.seekg(0, std::ios::beg);
+	pmerge.createDeqPairs(stream);
+
+	pmerge.printVec(1);
+	pmerge.printVec(2);
+	pmerge.printDeq(1);
+	pmerge.printDeq(2);
+
+	pmerge.sortVecPairs();
+	pmerge.sortDeqPairs();
+
+	pmerge.printVec(1);
+	pmerge.printVec(2);
+	pmerge.printDeq(1);
+	pmerge.printDeq(2);
 }
 
 int main (int argc, char **argv) 
