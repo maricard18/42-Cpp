@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 16:26:45 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:34:04 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class PmergeMe
 		bool	validateArguments(int argc, char **argv, std::stringstream& stream);
 		void	createPairs(std::stringstream& stream);
 		void	sortPairs();
+		void	buildJacobSequence();
 
 		//! Helpers
 		void	printVec(int id);
