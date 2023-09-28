@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 16:20:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:27:05 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,6 @@ void	PmergeMe::createPairs(std::stringstream& stream)
 			_mainDeq.push_back(number);
 		}
 	}
-
-	std::cout << WHITE "Before sort: " << std::endl;
-	printVec(1);
-	printVec(2);
-	printDeque(1);
-	printDeque(2);
-
-	sortPairs();
-
-	std::cout << WHITE "After sort: " << std::endl;
-	printVec(1);
-	printVec(2);
-	printDeque(1);
-	printDeque(2);
 }
 
 void	PmergeMe::sortPairs()
@@ -110,31 +96,35 @@ void	PmergeMe::printVec(int id)
 
 	if (id == 1) {
 		std::cout << YELLOW "main vec: " RESET;
+		
 		for (std::vector<int>::iterator it = _mainVec.begin(); it != _mainVec.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
 	}
 	else {
 		std::cout << YELLOW "pend vec: " RESET;
+		
 		for (std::vector<int>::iterator it = _pendVec.begin(); it != _pendVec.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
 	}
 }
 
-void	PmergeMe::printDeque(int id)
+void	PmergeMe::printDeq(int id)
 {
 	if (id != 1 && id != 2)
 		throw std::runtime_error("invalid id");
 
 	if (id == 1) {
 		std::cout << YELLOW "main deque: " RESET;
+		
 		for (std::deque<int>::iterator it = _mainDeq.begin(); it != _mainDeq.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
 	}
 	else {
 		std::cout << YELLOW "pend deque: " RESET;
+		
 		for (std::deque<int>::iterator it = _pendDeq.begin(); it != _pendDeq.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 16:17:26 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:26:45 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class PmergeMe
 
 		//! Helpers
 		void	printVec(int id);
-		void	printDeque(int id);
+		void	printDeq(int id);
 
 };
 
