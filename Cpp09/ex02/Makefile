@@ -6,7 +6,7 @@
 #    By: maricard <maricard@student.porto.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 12:17:49 by maricard          #+#    #+#              #
-#    Updated: 2023/09/28 13:22:30 by maricard         ###   ########.fr        #
+#    Updated: 2023/09/28 15:54:41 by maricard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ AR 		= ar -rcs
 NAME	= PmergeMe
 CFLAGS	= -g -Wall -Wextra -Werror -std=c++98
 
-SRC		= main.cpp #PmergeMe.cpp
+SRC		= main.cpp PmergeMe.cpp
 TARGET 	= $(SRC:.cpp=.o)
 
 ifeq ($(SAN), 1)

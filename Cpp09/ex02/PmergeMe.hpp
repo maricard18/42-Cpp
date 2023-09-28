@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 13:23:33 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:17:26 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <sstream>
+# include <vector>
+# include <deque>
 
 # define RED 	"\033[1;31m"
 # define GREEN 	"\033[1;32m"
@@ -25,6 +27,10 @@
 class PmergeMe
 {
 	private:
+		std::vector<int>	_mainVec;
+		std::vector<int>	_pendVec;
+		std::deque<int>		_mainDeq;
+		std::deque<int>		_pendDeq;
 
 	public:
 		//! Constructors and destructor
@@ -36,6 +42,13 @@ class PmergeMe
 		PmergeMe& operator=(const PmergeMe& other);
 
 		//! Functions
+		bool	validateArguments(int argc, char **argv, std::stringstream& stream);
+		void	createPairs(std::stringstream& stream);
+		void	sortPairs();
+
+		//! Helpers
+		void	printVec(int id);
+		void	printDeque(int id);
 
 };
 
