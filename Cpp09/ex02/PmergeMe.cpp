@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/28 23:26:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:51:35 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void PmergeMe::vecBinarySearch(int number)
 		{
 			_mainVec.insert(_mainVec.begin() + middle, number);
 			return ;
-		}	
+		}
 	}
 
 	_mainVec.insert(_mainVec.begin() + end, number);
@@ -199,31 +199,28 @@ std::vector<int>	PmergeMe::buildVecJacobSequence()
 	std::vector<int>	jacob;
 	std::vector<int>	index;
 	int	size = _pendVec.size();
+	unsigned long k;
 	int num = 0;
-	int index;
+	int i = 0;
 
 	jacob.push_back(0);
 	jacob.push_back(1);
-	for (; num <= size;)
+	std::cout << "size: " << size << std::endl;
+	for (; num < size;)
 	{
 		num = jacob.back() + (jacob[jacob.size() - 2] * 2);
 		jacob.push_back(num);
 	}
 
 	index.push_back(1);
-	for (int i = 3; i < jacob.size() - 1; i++)
+	for (k = 3; k < jacob.size(); k++)
 	{
-		index = i;
-		num = jacob[i] - jacob[i - 1];
+		i = jacob[k];
+		num = jacob[k] - jacob[k - 1];
+		std::cout << "num: " << num << std::endl;
 		for (int j = num; j > 0; j--)
-			index.push_back(jacob[index--]);
-		
+			index.push_back(i--);
 	}
-
-	//print jacob
-	 for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
-	 	std::cout << *it << " ";
-	 std::cout << std::endl;
 
 	return index;
 }
