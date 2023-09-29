@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/29 12:51:35 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:08:32 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void PmergeMe::vecBinarySearch(int number)
 		{
 			_mainVec.insert(_mainVec.begin() + middle, number);
 			return ;
-		}
+		}	
 	}
 
 	_mainVec.insert(_mainVec.begin() + end, number);
@@ -217,10 +217,19 @@ std::vector<int>	PmergeMe::buildVecJacobSequence()
 	{
 		i = jacob[k];
 		num = jacob[k] - jacob[k - 1];
-		std::cout << "num: " << num << std::endl;
 		for (int j = num; j > 0; j--)
 			index.push_back(i--);
 	}
+
+	//print jacob
+	 for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
+	 	std::cout << *it << " ";
+	 std::cout << std::endl;
+
+	//print index
+	 for (std::vector<int>::iterator it = index.begin(); it != index.end(); it++)
+	 	std::cout << *it << " ";
+	 std::cout << std::endl;
 
 	return index;
 }
