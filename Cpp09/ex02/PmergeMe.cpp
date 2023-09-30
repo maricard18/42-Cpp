@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/29 16:08:32 by maricard         ###   ########.fr       */
+/*   Updated: 2023/09/30 14:30:55 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void	PmergeMe::createDeqPairs(std::stringstream& stream)
 }
 
 void	PmergeMe::sortVecPairs()
-{
-	for (int i = 0; _mainVec[i]; i++)
+{	
+	for (size_t i = 0; i < _mainVec.size(); i++)
 	{
 		if ( _mainVec[i] > _pendVec[i])
 		{
@@ -99,7 +99,7 @@ void	PmergeMe::sortVecPairs()
 
 void	PmergeMe::sortDeqPairs()
 {
-	for (int i = 0; _mainDeq[i]; i++)
+	for (size_t i = 0; i < _mainDeq.size(); i++)
 	{
 		if ( _mainDeq[i] > _pendDeq[i])
 		{
@@ -156,7 +156,7 @@ void PmergeMe::vecBinarySearch(int number)
 
 	while (start <= end)
 	{
-		middle = (start + (end - start)) / 2;
+		middle = (start + end) / 2;
 		if (number > _mainVec[middle])
 			start = middle + 1;
 		else if (number < _mainVec[middle])
@@ -165,10 +165,10 @@ void PmergeMe::vecBinarySearch(int number)
 		{
 			_mainVec.insert(_mainVec.begin() + middle, number);
 			return ;
-		}	
+		}
 	}
 
-	_mainVec.insert(_mainVec.begin() + end, number);
+	_mainVec.insert(_mainVec.begin() + start, number);
 }
 
 void PmergeMe::deqBinarySearch(int number)
@@ -179,7 +179,7 @@ void PmergeMe::deqBinarySearch(int number)
 
 	while (start <= end)
 	{
-		middle = (start + (end - start)) / 2;
+		middle = (start + end) / 2;
 		if (number > _mainDeq[middle])
 			start = middle + 1;
 		else if (number < _mainDeq[middle])
@@ -188,10 +188,10 @@ void PmergeMe::deqBinarySearch(int number)
 		{
 			_mainDeq.insert(_mainDeq.begin() + middle, number);
 			return ;
-		}	
+		}
 	}
 
-	_mainDeq.insert(_mainDeq.begin() + end, number);
+	_mainDeq.insert(_mainDeq.begin() + start, number);
 }
 
 std::vector<int>	PmergeMe::buildVecJacobSequence()
@@ -205,7 +205,6 @@ std::vector<int>	PmergeMe::buildVecJacobSequence()
 
 	jacob.push_back(0);
 	jacob.push_back(1);
-	std::cout << "size: " << size << std::endl;
 	for (; num < size;)
 	{
 		num = jacob.back() + (jacob[jacob.size() - 2] * 2);
@@ -221,25 +220,110 @@ std::vector<int>	PmergeMe::buildVecJacobSequence()
 			index.push_back(i--);
 	}
 
-	//print jacob
-	 for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
-	 	std::cout << *it << " ";
-	 std::cout << std::endl;
+	////print jacob
+	// for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
+	// 	std::cout << *it << " ";
+	// std::cout << std::endl;
 
-	//print index
-	 for (std::vector<int>::iterator it = index.begin(); it != index.end(); it++)
-	 	std::cout << *it << " ";
-	 std::cout << std::endl;
+	////print index
+	// for (std::vector<int>::iterator it = index.begin(); it != index.end(); it++)
+	// 	std::cout << *it << " ";
+	// std::cout << std::endl;
 
 	return index;
 }
 
+std::deque<int>	PmergeMe::buildDeqJacobSequence()
+{
+	std::deque<int>	jacob;
+	std::deque<int>	index;
+	int	size = _pendDeq.size();
+	unsigned long k;
+	int num = 0;
+	int i = 0;
+
+	jacob.push_back(0);
+	jacob.push_back(1);
+	for (; num < size;)
+	{
+		num = jacob.back() + (jacob[jacob.size() - 2] * 2);
+		jacob.push_back(num);
+	}
+
+	index.push_back(1);
+	for (k = 3; k < jacob.size(); k++)
+	{
+		i = jacob[k];
+		num = jacob[k] - jacob[k - 1];
+		for (int j = num; j > 0; j--)
+			index.push_back(i--);
+	}
+
+	////print jacob
+	// for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
+	// 	std::cout << *it << " ";
+	// std::cout << std::endl;
+
+	////print index
+	// for (std::vector<int>::iterator it = index.begin(); it != index.end(); it++)
+	// 	std::cout << *it << " ";
+	// std::cout << std::endl;
+
+	return index;
+}
+
+void	PmergeMe::insertVec()
+{
+	std::vector<int>	jacob = buildVecJacobSequence();
+	int jacobSize = jacob.size();
+	int pendSize = _pendVec.size() - 1;
+	int i = 0;
+	int index = 0;
+
+	vecBinarySearch(_pendVec[0]);
+	for (; i < jacobSize; i++)
+	{
+		if (jacob[i] <= pendSize)
+		{
+			index = jacob[i];
+			vecBinarySearch(_pendVec[index]);
+		}
+		else
+			continue;
+	}
+
+	printVec(MAIN);
+}
+
+void	PmergeMe::insertDeq()
+{
+	std::deque<int>	jacob = buildDeqJacobSequence();
+	int jacobSize = jacob.size();
+	int pendSize = _pendDeq.size() - 1;
+	int i = 0;
+	int index = 0;
+
+	deqBinarySearch(_pendDeq[0]);
+	for (; i < jacobSize; i++)
+	{
+		if (jacob[i] <= pendSize)
+		{
+			index = jacob[i];
+			deqBinarySearch(_pendDeq[index]);
+		}
+		else
+			continue;
+	}
+
+	printDeq(MAIN);
+}
+
 void	PmergeMe::printVec(int id)
 {
-	if (id != 1 && id != 2)
+	if (id != MAIN && id != PEND)
 		throw std::runtime_error("invalid id");
 
-	if (id == 1)
+	if (id == MAIN)
 	{
 		std::cout << YELLOW "main vec: " RESET;
 		
@@ -259,12 +343,12 @@ void	PmergeMe::printVec(int id)
 
 void	PmergeMe::printDeq(int id)
 {
-	if (id != 1 && id != 2)
+	if (id != MAIN && id != PEND)
 		throw std::runtime_error("invalid id");
 
-	if (id == 1)
+	if (id == MAIN)
 	{
-		std::cout << YELLOW "main deque: " RESET;
+		std::cout << YELLOW "main deq: " RESET;
 		
 		for (std::deque<int>::iterator it = _mainDeq.begin(); it != _mainDeq.end(); it++)
 			std::cout << *it << " ";
@@ -272,7 +356,7 @@ void	PmergeMe::printDeq(int id)
 	}
 	else
 	{
-		std::cout << YELLOW "pend deque: " RESET;
+		std::cout << YELLOW "pend deq: " RESET;
 		
 		for (std::deque<int>::iterator it = _pendDeq.begin(); it != _pendDeq.end(); it++)
 			std::cout << *it << " ";
