@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 08:52:01 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:33:36 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,11 +145,14 @@ void	PmergeMe::sortDeqMainChain()
 		{
 			std::iter_swap(mainIt, mainIt + 1);
 			std::iter_swap(pendIt, pendIt + 1);
-			_mainDeq.begin();
-			_pendDeq.begin();
+			mainIt = _mainDeq.begin();
+            pendIt = _pendDeq.begin();
 		}
-		mainIt++;
-		pendIt++;
+		else
+		{
+			mainIt++;
+			pendIt++;
+		}
 	}
 }
 
@@ -265,12 +268,12 @@ std::deque<int>	PmergeMe::buildDeqJacobSequence()
 	}
 
 	////print jacob
-	// for (std::vector<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
+	// for (std::deque<int>::iterator it = jacob.begin(); it != jacob.end(); it++)
 	// 	std::cout << *it << " ";
 	// std::cout << std::endl;
 
 	////print index
-	// for (std::vector<int>::iterator it = index.begin(); it != index.end(); it++)
+	// for (std::deque<int>::iterator it = index.begin(); it != index.end(); it++)
 	// 	std::cout << *it << " ";
 	// std::cout << std::endl;
 
@@ -296,8 +299,6 @@ void	PmergeMe::insertVec()
 		else
 			continue;
 	}
-
-	printVec(MAIN);
 }
 
 void	PmergeMe::insertDeq()
@@ -319,8 +320,6 @@ void	PmergeMe::insertDeq()
 		else
 			continue;
 	}
-
-	printDeq(MAIN);
 }
 
 void	PmergeMe::printVec(int id)
