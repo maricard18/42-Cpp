@@ -6,13 +6,13 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 12:30:28 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:55:38 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _isVecSorted(false), _isDeqSorted(false)
 {
 }
 
@@ -29,6 +29,12 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
 	if (this == &other)
 		return (*this);
+	_mainVec = other._mainVec;
+	_pendVec = other._pendVec;
+	_mainDeq = other._mainDeq;
+	_pendDeq = other._pendDeq;
+	_isVecSorted = other._isVecSorted;
+	_isDeqSorted = other._isDeqSorted;
 	return (*this);
 }
 
@@ -299,6 +305,14 @@ void	PmergeMe::insertVec()
 		else
 			continue;
 	}
+
+	std::vector<int>::iterator pos;
+	pos = std::adjacent_find(_mainVec.begin(), _mainVec.end(), std::greater<int>());
+
+	if (pos == _mainVec.end())
+		_isVecSorted = true;
+	else
+		_isVecSorted = false;
 }
 
 void	PmergeMe::insertDeq()
@@ -320,6 +334,14 @@ void	PmergeMe::insertDeq()
 		else
 			continue;
 	}
+
+	std::deque<int>::iterator pos;
+	pos = std::adjacent_find(_mainDeq.begin(), _mainDeq.end(), std::greater<int>());
+
+	if (pos == _mainDeq.end())
+		_isDeqSorted = true;
+	else
+		_isDeqSorted = false;
 }
 
 void 	PmergeMe::displayUnsortedSequence(int argc, char **argv)
@@ -369,9 +391,7 @@ void	PmergeMe::displayTime(double vecTime, double decTime)
 
 void	PmergeMe::checkIfVecSorted()
 {
-	bool isSorted = std::is_sorted(_mainVec.begin(), _mainVec.end());
-
-	if (isSorted)
+	if (_isVecSorted == true)
 	{
     	std::cout << GREEN "Vec container is sorted." RESET << std::endl;
 	}
@@ -383,9 +403,7 @@ void	PmergeMe::checkIfVecSorted()
 
 void	PmergeMe::checkIfDeqSorted()
 {
-	bool isSorted = std::is_sorted(_mainDeq.begin(), _mainDeq.end());
-
-	if (isSorted)
+	if (_isDeqSorted == true)
 	{
     	std::cout << GREEN "Deq container is sorted." RESET << std::endl;
 	}

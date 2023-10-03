@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 12:29:51 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:49:04 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ class PmergeMe
 	private:
 		std::vector<int>	_mainVec;
 		std::vector<int>	_pendVec;
+		bool				_isVecSorted;
 
 	private:
 		std::deque<int>		_mainDeq;
 		std::deque<int>		_pendDeq;
+		bool				_isDeqSorted;
 
 	public:
 		//! Constructors and destructor
