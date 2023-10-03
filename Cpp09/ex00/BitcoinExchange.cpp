@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 15:58:21 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:58:52 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
 
 BitcoinExchange::~BitcoinExchange()
 {
-	
 }
 
 BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other)
