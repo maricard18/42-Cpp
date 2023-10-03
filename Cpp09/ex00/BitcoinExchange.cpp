@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:35:05 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/27 10:50:30 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:34:30 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ std::string	BitcoinExchange::checkLine(std::string line)
 	
 	if (!isFloat(value))
 		return "Error: not a number => \'" + value + "\'";
-	else if (value.length() > 5 || number > 1000)
+	else if (number > 1000)
 		return "Error: too large a number => \'" + value + "\'";
 	else if (number < 0)
 		return "Error: not a positive number => \'" + value + "\'";
@@ -149,7 +149,7 @@ std::string	BitcoinExchange::getBitcoinValue(std::string date, long int number)
 	{
 		if (date == begin->first)
 		{
-			stream << begin->second * number;
+			stream << std::fixed << std::setprecision(2) << begin->second * number;
 			return date + " => " + stream.str();
 		}
 		begin++;
@@ -163,7 +163,7 @@ std::string	BitcoinExchange::getBitcoinValue(std::string date, long int number)
 		if (begin->first > date)
 		{
 			begin--;
-			stream << begin->second * number;
+			stream << std::fixed << std::setprecision(2) << begin->second * number;
 			return date + " => " + stream.str();
 		}
 		begin++;

@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:30:27 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/26 20:13:50 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:32:21 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <sstream>
 # include <stdlib.h>
 # include <fstream>
