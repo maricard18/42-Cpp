@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:42:23 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/30 14:18:07 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 08:51:31 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	mergeInsertionAlgorithm(int argc, char **argv)
 	pmerge.sortDeqPairs();
 	pmerge.sortDeqMainChain();
 	pmerge.insertDeq();
+
+	pmerge.checkIfVecSorted();
+	pmerge.checkIfDeqSorted();
 }
 
 int main (int argc, char **argv) 

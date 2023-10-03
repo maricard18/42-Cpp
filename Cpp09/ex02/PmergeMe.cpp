@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/30 14:30:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 08:52:01 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	PmergeMe::createDeqPairs(std::stringstream& stream)
 }
 
 void	PmergeMe::sortVecPairs()
-{	
+{
 	for (size_t i = 0; i < _mainVec.size(); i++)
 	{
 		if ( _mainVec[i] > _pendVec[i])
@@ -123,10 +123,14 @@ void	PmergeMe::sortVecMainChain()
 		{
 			std::iter_swap(mainIt, mainIt + 1);
 			std::iter_swap(pendIt, pendIt + 1);
-			sortVecMainChain();
+            mainIt = _mainVec.begin();
+            pendIt = _pendVec.begin();
 		}
-		mainIt++;
-		pendIt++;
+		else
+		{
+			mainIt++;
+			pendIt++;
+		}
 	}
 }
 
@@ -141,7 +145,8 @@ void	PmergeMe::sortDeqMainChain()
 		{
 			std::iter_swap(mainIt, mainIt + 1);
 			std::iter_swap(pendIt, pendIt + 1);
-			sortDeqMainChain();
+			_mainDeq.begin();
+			_pendDeq.begin();
 		}
 		mainIt++;
 		pendIt++;
@@ -361,5 +366,33 @@ void	PmergeMe::printDeq(int id)
 		for (std::deque<int>::iterator it = _pendDeq.begin(); it != _pendDeq.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
+	}
+}
+
+void	PmergeMe::checkIfVecSorted()
+{
+	bool isSorted = std::is_sorted(_mainVec.begin(), _mainVec.end());
+
+	if (isSorted)
+	{
+    	std::cout << GREEN "Vec container is sorted." RESET << std::endl;
+	}
+	else
+	{
+    	std::cout << RED "Vec container is not sorted." RESET << std::endl;
+	}
+}
+
+void	PmergeMe::checkIfDeqSorted()
+{
+	bool isSorted = std::is_sorted(_mainDeq.begin(), _mainDeq.end());
+
+	if (isSorted)
+	{
+    	std::cout << GREEN "Deq container is sorted." RESET << std::endl;
+	}
+	else
+	{
+    	std::cout << RED "Deq container is not sorted." RESET << std::endl;
 	}
 }

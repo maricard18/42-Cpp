@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/30 14:19:19 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 08:50:43 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <vector>
 # include <deque>
 # include <math.h>
+# include <algorithm>
 
 # define MAIN 1
 # define PEND 2
@@ -66,6 +67,8 @@ class PmergeMe
 		//! Helpers
 		void	printVec(int id);
 		void	printDeq(int id);
+		void	checkIfVecSorted();
+		void	checkIfDeqSorted();
 		void	displayResults();
 };
 
