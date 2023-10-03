@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:45:45 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 15:40:16 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:56:41 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ RPN& RPN::operator=(const RPN& other)
 {
 	if (this == &other)
 		return (*this);
+	_stack = other._stack;
 	return (*this);
 }
 
