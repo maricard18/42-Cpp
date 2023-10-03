@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:23:11 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 08:50:43 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:29:51 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define PMERGEME_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <sstream>
 # include <vector>
 # include <deque>
 # include <math.h>
 # include <algorithm>
+# include <ctime>
 
 # define MAIN 1
 # define PEND 2
@@ -69,7 +71,9 @@ class PmergeMe
 		void	printDeq(int id);
 		void	checkIfVecSorted();
 		void	checkIfDeqSorted();
-		void	displayResults();
+		void	displayTime(double vecTime, double decTime);
+		void	displayUnsortedSequence(int argc, char **argv);
+		void	displaySortedSequence();
 };
 
 #endif

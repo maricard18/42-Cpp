@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:25:21 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 11:33:36 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:30:28 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,6 +322,79 @@ void	PmergeMe::insertDeq()
 	}
 }
 
+void 	PmergeMe::displayUnsortedSequence(int argc, char **argv)
+{
+	std::stringstream stream;
+
+	for (int i = 1; i < argc; i++)
+	{
+		std::stringstream	input(argv[i]);
+		int number = 0;
+		
+		input >> number;
+		std::cout << number << " ";
+	}
+	std::cout << std::endl;
+}
+
+void	PmergeMe::displaySortedSequence()
+{
+	for (std::vector<int>::iterator it = _mainVec.begin(); it != _mainVec.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
+void	PmergeMe::displayTime(double vecTime, double decTime)
+{
+	std::cout << YELLOW "Time to process a range of " WHITE
+			  << _mainVec.size() 
+			  << YELLOW " elements with std::" RED
+			  << "vector" YELLOW 
+			  << " : " WHITE
+			  << std::fixed
+			  << std::setprecision(6)
+			  << vecTime
+			  << std::endl;
+
+	std::cout << YELLOW "Time to process a range of " WHITE
+			  << _mainDeq.size()
+			  << YELLOW " elements with std::" RED
+			  << "deque" YELLOW 
+			  << "  : " WHITE
+			  << std::fixed
+			  << std::setprecision(6)
+			  << decTime
+			  << std::endl;
+}
+
+void	PmergeMe::checkIfVecSorted()
+{
+	bool isSorted = std::is_sorted(_mainVec.begin(), _mainVec.end());
+
+	if (isSorted)
+	{
+    	std::cout << GREEN "Vec container is sorted." RESET << std::endl;
+	}
+	else
+	{
+    	std::cout << RED "Vec container is not sorted." RESET << std::endl;
+	}
+}
+
+void	PmergeMe::checkIfDeqSorted()
+{
+	bool isSorted = std::is_sorted(_mainDeq.begin(), _mainDeq.end());
+
+	if (isSorted)
+	{
+    	std::cout << GREEN "Deq container is sorted." RESET << std::endl;
+	}
+	else
+	{
+    	std::cout << RED "Deq container is not sorted." RESET << std::endl;
+	}
+}
+
 void	PmergeMe::printVec(int id)
 {
 	if (id != MAIN && id != PEND)
@@ -365,33 +438,5 @@ void	PmergeMe::printDeq(int id)
 		for (std::deque<int>::iterator it = _pendDeq.begin(); it != _pendDeq.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
-	}
-}
-
-void	PmergeMe::checkIfVecSorted()
-{
-	bool isSorted = std::is_sorted(_mainVec.begin(), _mainVec.end());
-
-	if (isSorted)
-	{
-    	std::cout << GREEN "Vec container is sorted." RESET << std::endl;
-	}
-	else
-	{
-    	std::cout << RED "Vec container is not sorted." RESET << std::endl;
-	}
-}
-
-void	PmergeMe::checkIfDeqSorted()
-{
-	bool isSorted = std::is_sorted(_mainDeq.begin(), _mainDeq.end());
-
-	if (isSorted)
-	{
-    	std::cout << GREEN "Deq container is sorted." RESET << std::endl;
-	}
-	else
-	{
-    	std::cout << RED "Deq container is not sorted." RESET << std::endl;
 	}
 }
