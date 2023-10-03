@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:45:45 by maricard          #+#    #+#             */
-/*   Updated: 2023/10/03 15:56:41 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:17:23 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	RPN::solveExpression(std::string str)
 		else if (isOperator(str[i]))
 			doMath(str[i]);
 	}
+
+	if (_stack.size() != 1)
+		throw std::runtime_error("numbers and operations don't match");
 
 	std::cout << YELLOW << "Result: " WHITE << _stack.top() << std::endl;
 }
