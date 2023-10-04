@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:10:14 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/30 09:58:53 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:46:56 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap Constructor was called" << std::endl;
 	this->name = name;
-	this->hit_points = 100;
-	this->energy_points = 100;
-	this->attack_damage = 30;
+	this->hit_points = 10;
+	this->energy_points = 10;
+	this->attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy)

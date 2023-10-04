@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 13:11:01 by maricard          #+#    #+#             */
-/*   Updated: 2023/08/29 14:27:55 by maricard         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:05:21 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class FragTrap : virtual public ClapTrap
 		//! Functions
 		void	attack(const std::string& target);
 		void 	highFivesGuys(void);
+		int		getHitPoints(void) const;
+		int		getAttackDamage(void) const;
 };
 
 #endif
