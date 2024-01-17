@@ -6,7 +6,7 @@
 /*   By: maricard <maricard@student.porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:06:12 by maricard          #+#    #+#             */
-/*   Updated: 2023/09/21 11:34:13 by maricard         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:42:46 by maricard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void 	print(T x)
 	std::cout << GREEN << x << " " << RESET;
 }
 
-template <typename T>
-void	iter(T* array, size_t len, void (*func)(T&))
+template <typename T, typename U>
+void	iter(T* array, size_t len, void (*func)(U&))
 {
 	size_t	i = -1;
 
